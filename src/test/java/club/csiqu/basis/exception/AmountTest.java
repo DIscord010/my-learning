@@ -4,16 +4,18 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.junit.Assert.*;
+
 /**
  * @author Siqu Chen 2020/2/26
  * @since 1.0.0
  */
-public class InsufficientFundsExceptionTest {
+public class AmountTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(InsufficientFundsExceptionTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AmountTest.class);
 
     @Test
-    public void testInsufficientFundsExceptionTest() {
+    public void testAmount() {
         Amount amount = new Amount(50, 10);
         amount.deposit(20);
         amount.deposit(10);
@@ -22,6 +24,8 @@ public class InsufficientFundsExceptionTest {
             amount.withdraw(50);
         } catch (InsufficientFundsException e) {
             LOGGER.warn(e.getMessage());
+            return;
         }
+        throw new RuntimeException();
     }
 }

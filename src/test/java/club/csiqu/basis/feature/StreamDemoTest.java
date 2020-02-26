@@ -1,6 +1,5 @@
 package club.csiqu.basis.feature;
 
-import club.csiqu.basis.MyLogger;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -25,7 +24,7 @@ public class StreamDemoTest {
     public void list2Map() {
         List<Integer> list = Arrays.asList(1, 2, 3);
         Map<Integer, Integer> map = StreamDemo.list2Map(list);
-        MyLogger.info(map);
+        assertEquals(map.get(1), new Integer(1));
     }
 
     @Test
