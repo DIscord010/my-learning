@@ -10,6 +10,7 @@ class InsufficientFundsException extends Exception {
     private int amount;
 
     InsufficientFundsException(int amount) {
+        super("金额不足，差值为 " + amount);
         this.amount = amount;
     }
 
