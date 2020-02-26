@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="output" class="club.csiqu.framework.spring.tiny.service.impl.OutputServiceImpl">
+
+    </bean>
+
+    <bean id="hello" class="club.csiqu.framework.spring.tiny.service.impl.HelloServiceImpl">
+        <property name="text" value="Hello Chensiqu!"/>
+        <property name="outputService" ref="output"/>
+    </bean>
+
+    <bean id="autoProxyCreator"
+          class="club.csiqu.framework.spring.tiny.aop.AspectJAwareAdvisorAutoProxyCreator"/>
+
+    <bean id="timeInterceptor" class="club.csiqu.framework.spring.tiny.aop.TimerInterceptor"/>
+
+    <bean id="aspectjAspect" class="club.csiqu.framework.spring.tiny.aop.AspectJExpressionPointcutAdvisor">
+        <property name="advice" ref="timeInterceptor"/>
+        <property name="expression" value="execution(* org.csiqu.framework.spring.tiny.service.impl.*.*(..))"/>
+    </bean>
+</beans>
