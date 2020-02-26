@@ -1,9 +1,14 @@
-package club.csiqu.basis.io.http;
+package club.csiqu.basis.io.socket.http;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 class Request {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(Request.class);
 
     private InputStream inputStream;
 
@@ -20,13 +25,12 @@ class Request {
         try {
             i = inputStream.read(buffer);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warn("读取客户端发送的数据流出现异常，可能为客户端断开连接：{}", e.getMessage());
             i = -1;
         }
         for (int j = 0; j < i; j++) {
-            requestStr.append((char) buffer[j]);
+            requestStr.append((char)buffer[j]);
         }
-        System.out.println(requestStr.toString());
         this.uri = parseUri(requestStr.toString());
     }
 
