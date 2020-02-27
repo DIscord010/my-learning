@@ -1,4 +1,4 @@
-package club.csiqu.basis.jvm.asm;
+package club.csiqu.basis.jvm.bytecode.asm;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;

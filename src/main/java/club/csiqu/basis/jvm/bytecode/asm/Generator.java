@@ -1,4 +1,4 @@
-package club.csiqu.basis.jvm.asm;
+package club.csiqu.basis.jvm.bytecode.asm;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -17,14 +17,14 @@ public class Generator {
     public static void main(String[] args) throws IOException {
 
         // 读取
-        ClassReader classReader = new ClassReader("org.chensiqu.basis.jvm.asm.Base");
+        ClassReader classReader = new ClassReader("club.csiqu.basis.jvm.bytecode.asm.Base");
         ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
         // 处理
         ClassVisitor classVisitor = new MyClassVisitor(classWriter);
         classReader.accept(classVisitor, ClassReader.SKIP_DEBUG);
         byte[] data = classWriter.toByteArray();
 
-        File f = new File("E:/IDEA/workspace/my-learning/target/classes/org/chensiqu/basis/jvm/asm/Base.class");
+        File f = new File("E:/IDEA/workspace/my-learning/target/classes/club/csiqu/basis/jvm/bytecode/asm/Base.class");
         try (FileOutputStream fileOutputStream = new FileOutputStream(f)) {
             fileOutputStream.write(data);
         }
