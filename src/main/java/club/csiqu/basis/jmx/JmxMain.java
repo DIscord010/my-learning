@@ -1,8 +1,5 @@
 package club.csiqu.basis.jmx;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javax.management.*;
 import java.lang.management.ManagementFactory;
 
@@ -14,20 +11,17 @@ import java.lang.management.ManagementFactory;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/12 14:23
  */
-public class JMXMain {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(JMXMain.class);
+public class JmxMain {
 
     @SuppressWarnings("InfiniteLoopStatement")
-    public static void main(String[] args) throws MalformedObjectNameException, InterruptedException, NotCompliantMBeanException, InstanceAlreadyExistsException, MBeanRegistrationException {
-
+    public static void main(String[] args) throws MalformedObjectNameException, InterruptedException,
+            NotCompliantMBeanException, InstanceAlreadyExistsException, MBeanRegistrationException {
         MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
-
         MyCustomMBean myCustom = new MyCustom();
         mBeanServer.registerMBean(myCustom, new ObjectName("myBean:name=MyJMXTestUtil"));
         while (true) {
             Thread.sleep(1000);
-            LOGGER.info(myCustom.getInfo());
+            System.out.println(myCustom.getInfo());
         }
     }
 }
