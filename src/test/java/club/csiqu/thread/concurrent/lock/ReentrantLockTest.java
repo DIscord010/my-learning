@@ -1,7 +1,6 @@
 package club.csiqu.thread.concurrent.lock;
 
-import club.csiqu.thread.concurrent.lock.ReentrantLock;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author chensiqu 2019/12/19

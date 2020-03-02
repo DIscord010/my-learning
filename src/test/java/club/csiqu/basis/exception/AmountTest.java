@@ -1,8 +1,8 @@
 package club.csiqu.basis.exception;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Siqu Chen 2020/2/26
@@ -10,16 +10,13 @@ import org.junit.rules.ExpectedException;
  */
 public class AmountTest {
 
-    @Rule
-    public ExpectedException expect = ExpectedException.none();
-
     @Test
     public void testAmount() throws InsufficientFundsException {
         Amount amount = new Amount(50, 10);
         amount.deposit(20);
         amount.deposit(10);
         amount.withdraw(10);
-        expect.expect(InsufficientFundsException.class);
-        amount.withdraw(50);
+        Assertions.assertThrows(InsufficientFundsException.class,
+                () -> amount.withdraw(50));
     }
 }
