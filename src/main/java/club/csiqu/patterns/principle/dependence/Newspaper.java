@@ -4,7 +4,7 @@ package club.csiqu.patterns.principle.dependence;
  * @author chensiqu
  * @since 2019/3/13 13:51
  */
-class Newspaper implements IReader {
+class Newspaper implements Reader {
 
     @Override
     public String getContent() {

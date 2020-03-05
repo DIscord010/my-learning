@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         Mother mother = new Mother();
-        mother.narrate(new Book());
+        mother.narrate(new ArabBook());
         mother.narrate(new Newspaper());
     }
 }

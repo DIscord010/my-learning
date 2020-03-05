@@ -9,10 +9,10 @@ class Mother {
     /**
      * 依赖于接口 而不是具体的实现类
      *
-     * @param iReader 读物
+     * @param reader 读物
      */
-    void narrate(IReader iReader) {
+    void narrate(Reader reader) {
         System.out.println("妈妈开始讲故事：");
-        System.out.println(iReader.getContent());
+        System.out.println(reader.getContent());
     }
 }
