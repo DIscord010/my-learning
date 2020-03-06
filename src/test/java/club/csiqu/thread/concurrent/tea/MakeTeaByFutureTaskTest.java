@@ -1,7 +1,7 @@
 package club.csiqu.thread.concurrent.tea;
 
-import club.csiqu.thread.concurrent.tea.MakeTeaByFutureTask;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;

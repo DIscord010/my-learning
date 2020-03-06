@@ -3,7 +3,8 @@ package club.csiqu.framework.spring.tiny;
 import club.csiqu.framework.spring.tiny.context.ApplicationContext;
 import club.csiqu.framework.spring.tiny.context.ClassPathXmlApplicationContext;
 import club.csiqu.framework.spring.tiny.service.HelloService;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * 根据 github上 tiny-spring项目学习 Spring IoC和 Spring AOP原理。

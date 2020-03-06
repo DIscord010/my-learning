@@ -1,8 +1,8 @@
 package club.csiqu.thread.concurrent.lock;
 
-import club.csiqu.thread.concurrent.lock.MyLock;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * @author chensiqu 2019/12/19
@@ -31,7 +31,7 @@ public class MyLockTest {
         th1.join();
         th2.join();
         // 等两个线程执行完成后返回
-        Assert.assertNotEquals(20000, count);
+        Assertions.assertNotEquals(20000, count);
     }
 
     /**
@@ -66,6 +66,6 @@ public class MyLockTest {
         th1.join();
         th2.join();
         // 等两个线程执行完成后返回
-        Assert.assertEquals(20000, count);
+        Assertions.assertEquals(20000, count);
     }
 }

@@ -1,8 +1,8 @@
 package club.csiqu.basis.exception;
 
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Siqu Chen 2020/2/26
@@ -10,20 +10,13 @@ import org.slf4j.LoggerFactory;
  */
 public class AmountTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AmountTest.class);
-
     @Test
-    public void testAmount() {
+    public void testAmount() throws InsufficientFundsException {
         Amount amount = new Amount(50, 10);
         amount.deposit(20);
         amount.deposit(10);
-        try {
-            amount.withdraw(10);
-            amount.withdraw(50);
-        } catch (InsufficientFundsException e) {
-            LOGGER.warn(e.getMessage());
-            return;
-        }
-        throw new RuntimeException();
+        amount.withdraw(10);
+        Assertions.assertThrows(InsufficientFundsException.class,
+                () -> amount.withdraw(50));
     }
 }

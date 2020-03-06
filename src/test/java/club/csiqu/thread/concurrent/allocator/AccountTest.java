@@ -1,6 +1,6 @@
 package club.csiqu.thread.concurrent.allocator;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author chensiqu 2019/12/19
