@@ -1,6 +1,6 @@
-package club.csiqu.framework.rpc.my.api.service;
+package club.csiqu.framework.dubbo.my.rpc.api.service;
 
-import club.csiqu.framework.rpc.my.api.bean.Person;
+import club.csiqu.framework.dubbo.my.rpc.api.bean.Person;
 
 /**
  * @author chensiqu [540498860@qq.com]
@@ -10,5 +10,4 @@ public interface HelloService {
 
     String sayHello(Person person);
 
-    void helloWorld();
 }

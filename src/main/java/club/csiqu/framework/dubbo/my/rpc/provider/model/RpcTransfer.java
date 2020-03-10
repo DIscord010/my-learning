@@ -1,4 +1,4 @@
-package club.csiqu.framework.rpc.my.provider.model;
+package club.csiqu.framework.dubbo.my.rpc.provider.model;
 
 import java.io.Serializable;
 
@@ -17,14 +17,10 @@ public class RpcTransfer implements Serializable {
     private String methodName;
 
     /** 方法的参数类型 */
-    private Class[] clazzs;
+    private Class<?>[] clazzs;
 
     /** 方法参数 */
     private Object[] args;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public String getClazzName() {
         return clazzName;
@@ -42,11 +38,11 @@ public class RpcTransfer implements Serializable {
         this.methodName = methodName;
     }
 
-    public Class[] getClazzs() {
+    public Class<?>[] getClazzs() {
         return clazzs;
     }
 
-    public void setClazzs(Class[] clazzs) {
+    public void setClazzs(Class<?>[] clazzs) {
         this.clazzs = clazzs;
     }
 

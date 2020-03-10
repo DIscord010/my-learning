@@ -1,6 +1,6 @@
-package club.csiqu.framework.rpc.my.consumer.proxy;
+package club.csiqu.framework.dubbo.my.rpc.consumer.proxy;
 
-import club.csiqu.framework.rpc.my.provider.model.RpcTransfer;
+import club.csiqu.framework.dubbo.my.rpc.provider.model.RpcTransfer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ public class RpcProxy {
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws IOException {
             // RPC本质上即为序列化加上网络传输
-            try (Socket client = new Socket("localhost", 20000);
+            try (Socket client = new Socket("localhost", 9999);
                  OutputStream out = client.getOutputStream();
                  ObjectOutputStream objectOut = new ObjectOutputStream(out);
                  InputStream in = client.getInputStream();

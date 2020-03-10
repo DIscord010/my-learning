@@ -1,7 +1,7 @@
-package club.csiqu.framework.rpc.my.provider.service.impl;
+package club.csiqu.framework.dubbo.my.rpc.provider.service.impl;
 
-import club.csiqu.framework.rpc.my.api.bean.Person;
-import club.csiqu.framework.rpc.my.api.service.HelloService;
+import club.csiqu.framework.dubbo.my.rpc.api.bean.Person;
+import club.csiqu.framework.dubbo.my.rpc.api.service.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,10 +19,5 @@ public class HelloServiceImpl implements HelloService {
         String result = "hello, " + person.getName();
         LOGGER.info("调用sayHello()方法：{}", result);
         return result;
-    }
-
-    @Override
-    public void helloWorld() {
-        LOGGER.info("hello, world!");
     }
 }

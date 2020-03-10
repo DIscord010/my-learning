@@ -1,4 +1,4 @@
-package club.csiqu.framework.rpc.my.api.bean;
+package club.csiqu.framework.dubbo.my.rpc.api.bean;
 
 import java.io.Serializable;
 
