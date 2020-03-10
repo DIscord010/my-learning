@@ -18,7 +18,7 @@ public class RpcProxy {
 
     @SuppressWarnings("unchecked")
     public <T> T getObject(Class<T> clazz) {
-        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, new JDKDynamicProxy(clazz.getName()));
+        return (T)Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, new JDKDynamicProxy(clazz.getName()));
     }
 
     private static class JDKDynamicProxy implements InvocationHandler {
