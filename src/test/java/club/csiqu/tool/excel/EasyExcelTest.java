@@ -15,7 +15,7 @@ public class EasyExcelTest {
 
     @Test
     public void simpleRead() throws FileNotFoundException {
-        InputStream inputStream = new FileInputStream("E:/IDEA/workspace/my-learning/src/main/resources/file/excel/easyExcel.xls");
+        InputStream inputStream = new FileInputStream("./src/main/resources/file/excel/easyExcel.xls");
         EasyExcel.read(inputStream, DemoData.class, new DemoDataListener()).sheet().doRead();
     }
 }
