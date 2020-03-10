@@ -12,10 +12,9 @@ package club.csiqu.patterns.principle.liskov;
 public class Main {
 
     public static void main(String[] args) {
-        A a = new A();
-        System.out.println(a.funcA(100, 50));
-        B b = new B();
-        System.out.println(b.funcA(100, 50));
-        System.out.println(b.funcB(100, 50));
+        Father father = new Father();
+        System.out.println(father.func(100, 50));
+        Son son = new Son();
+        System.out.println(son.func(100, 50));
     }
 }

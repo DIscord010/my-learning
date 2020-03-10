@@ -9,8 +9,7 @@ import java.util.Map;
  */
 class Father {
 
-    Collection doSomething(Map map) {
-
+    Collection<?> doSomething(Map<?, ?> map) {
         System.out.println("父类被执行...");
         return map.values();
     }

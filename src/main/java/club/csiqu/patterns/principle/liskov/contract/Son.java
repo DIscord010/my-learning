@@ -11,15 +11,13 @@ import java.util.Map;
 class Son extends Father {
 
     /**
-     * 放大输入参数类型
+     * 缩小输入参数类型
      *
      * @param map {@link Map}
      * @return {@link Collection}
      */
-    Collection doSomething(HashMap map) {
-
+    Collection<?> doSomething(HashMap<?,?> map) {
         System.out.println("子类被执行...");
-
         return map.values();
     }
 }

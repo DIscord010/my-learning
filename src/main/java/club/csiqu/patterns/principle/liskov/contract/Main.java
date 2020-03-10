@@ -1,6 +1,5 @@
 package club.csiqu.patterns.principle.liskov.contract;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -11,23 +10,17 @@ import java.util.HashMap;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/10 13:15
  */
-public class Client {
+public class Main {
 
-    private static void invoke() {
-
-        Father father = new Father();
+    public static void main(String[] args) {
         HashMap<String, Integer> hashMap = new HashMap<String, Integer>(16) {
             {
                 put("key", 123);
             }
         };
-        Collection collection = father.doSomething(hashMap);
-        System.out.println(collection);
+        Father father = new Father();
+        System.out.println(father.doSomething(hashMap));
         Son son = new Son();
-        son.doSomething(hashMap);
-    }
-
-    public static void main(String[] args) {
-        invoke();
+        System.out.println(son.doSomething(hashMap));
     }
 }
