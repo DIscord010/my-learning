@@ -1,7 +1,10 @@
 package club.csiqu.thread.concurrent.allocator;
 
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 账户资源锁
@@ -10,6 +13,8 @@ import java.util.List;
  * @since 2019/3/27 9:54
  */
 class SingleAllocator {
+
+    private static Lock lock = new ReentrantLock();
 
     /** 资源集合 */
     private List<Account> als = new ArrayList<>();
@@ -22,25 +27,22 @@ class SingleAllocator {
      */
     synchronized void apply(Account from, Account to) {
         while (als.contains(from) || als.contains(to)) {
-            try {
-                // 释放进入 synchronized方法所获取的锁
-                this.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            lock.lock();
         }
         als.add(from);
         als.add(to);
     }
 
     /**
-     * 归还两个资源
+     * 归还两个账户资源
+     *
+     * @param account1 账户 1
+     * @param account2 账户 2
      */
     synchronized void free(Account account1, Account account2) {
         als.remove(account1);
         als.remove(account2);
-        // 唤醒所有 wait中的线程
-        notifyAll();
+        lock.unlock();
     }
 
     /**
@@ -57,7 +59,5 @@ class SingleAllocator {
         private static SingleAllocator instance = new SingleAllocator();
     }
 
-    private SingleAllocator() {
-
-    }
+    private SingleAllocator() {}
 }

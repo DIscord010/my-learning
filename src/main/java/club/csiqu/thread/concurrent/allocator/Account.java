@@ -13,6 +13,7 @@ class Account {
 
     /**
      * 构造函数
+     *
      * @param balance 初始开户金额
      */
     Account(int balance) {
