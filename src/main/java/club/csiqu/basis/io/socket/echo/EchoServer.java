@@ -76,7 +76,7 @@ public class EchoServer {
                     try {
                         socket.close();
                     } catch (IOException e) {
-                        LOGGER.warn("关闭socker连接出现异常：{}", e.getMessage());
+                        LOGGER.warn("关闭socket连接出现异常：{}", e.getMessage());
                     }
                 }
             }
