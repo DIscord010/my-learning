@@ -47,7 +47,7 @@ public class RpcProxy {
                 objectOut.writeObject(rpcTransfer);
                 return objectIn.readObject();
             } catch (ClassNotFoundException e) {
-                LOGGER.warn("获取RPC返回对象出现异常：{}", e.getMessage());
+                LOGGER.warn("返回结果对象对应类型不存在：{}", e.getMessage());
             }
             return null;
         }

@@ -72,9 +72,9 @@ public class RpcServer {
                     Object result = method.invoke(o, rpcTransfer.getArgs());
                     objectOut.writeObject(result);
                 } catch (ClassNotFoundException e) {
-                    LOGGER.warn("读取RPC传输对象出现异常：{}", e.getMessage());
+                    LOGGER.warn("RPC传输对象反序列化错误，对应类型不存在：{}", e.getMessage());
                 } catch (IllegalAccessException e) {
-                    LOGGER.warn("非法访问：{}", e.getMessage());
+                    LOGGER.warn("调用方法非法访问：{}", e.getMessage());
                 } catch (InstantiationException e) {
                     LOGGER.warn("反射实例化异常：{}", e.getMessage());
                 } catch (InvocationTargetException e) {
@@ -82,7 +82,7 @@ public class RpcServer {
                 } catch (NoSuchMethodException e) {
                     LOGGER.warn("未找到目标方法：{}", e.getMessage());
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    LOGGER.warn("IO传输异常，可能为客户端突然关闭连接：{}", e.getMessage());
                 }
             }
         });
