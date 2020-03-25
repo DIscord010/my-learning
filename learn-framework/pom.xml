@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>my-learning</artifactId>
+        <groupId>club.csiqu.learn</groupId>
+        <version>${revision}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>framework</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>learn-dubbo</module>
+        <module>learn-spring</module>
+        <module>tiny-spring</module>
+        <module>learn-mybatis</module>
+        <module>learn-netty</module>
+        <module>tiny-rpc</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>club.csiqu.learn</groupId>
+            <artifactId>learn-config</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+    </dependencies>
+</project>
