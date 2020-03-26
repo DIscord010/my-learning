@@ -34,7 +34,7 @@ class HashMap<K, V> {
     /**
      * 构造器
      */
-    private HashMap() {
+    public HashMap() {
         this(DEFAULT_INITIAL_CAPACITY, DEFAULT_LOAD_FACTOR);
     }
 
@@ -51,7 +51,11 @@ class HashMap<K, V> {
         }
         this.capacity = tableSizeFor(capacity);
         this.loadFactor = loadFactor;
-        table = (Entry<K, V>[]) new Entry[this.capacity];
+        table = new Entry[this.capacity];
+    }
+
+    public int getSize() {
+        return this.size;
     }
 
     /**
@@ -89,7 +93,8 @@ class HashMap<K, V> {
 
         @Override
         public V setValue(V value) {
-            return this.value = value;
+            this.value = value;
+            return this.value;
         }
     }
 
@@ -98,7 +103,7 @@ class HashMap<K, V> {
      *
      * @return 如果存在相同的 key，则返回旧键值对的 {@code value}。
      */
-    private V put(K k, V v) {
+    public V put(K k, V v) {
         V oldValue;
         if (size >= capacity * loadFactor) {
             // 扩容为原空间的两倍
@@ -108,7 +113,6 @@ class HashMap<K, V> {
         int index = hash & (capacity - 1);
         if (table[index] == null) {
             table[index] = new Entry<>(hash, k, v, null);
-            size++;
         } else {
             // 哈希冲突
             // 遍历单链表
@@ -125,8 +129,8 @@ class HashMap<K, V> {
             }
             // 不存在则将新 entry放入单链表的头
             table[index] = new Entry<>(hash, k, v, e);
-            size++;
         }
+        size++;
         return null;
     }
 
@@ -136,10 +140,10 @@ class HashMap<K, V> {
      * @param key 键
      * @return 存在的话，返回对应的值
      */
-    private V get(K key) {
-        int index;
+    public V get(K key) {
+        int index = hash(key) & (capacity - 1);
         // 当 capacity为 2的幂数时，capacity % length = capacity & (length - 1)。
-        if (table[index = hash(key) & (capacity - 1)] == null) {
+        if (table[index] == null) {
             return null;
         } else {
             Entry<K, V> entry = table[index];
@@ -160,7 +164,7 @@ class HashMap<K, V> {
      */
     @SuppressWarnings("unchecked")
     private void resize(int newCapacity) {
-        Entry<K, V>[] newTable = (Entry<K, V>[]) new Entry[newCapacity];
+        Entry<K, V>[] newTable = new Entry[newCapacity];
         capacity = newCapacity;
         size = 0;
         // 重新装填
@@ -172,7 +176,7 @@ class HashMap<K, V> {
      *
      * @param newTable 新数组
      */
-    private void rehash(Entry<K, V>[] newTable) {
+    public void rehash(Entry<K, V>[] newTable) {
         List<Entry<K, V>> list = new ArrayList<>();
         // 将旧元素放入集合中
         for (Entry<K, V> entry : table) {
@@ -210,30 +214,17 @@ class HashMap<K, V> {
      * @param cap 构造器定义的空间大小
      * @return 最接近 {@code cap}的 2的幂数
      */
-    private static int tableSizeFor(int cap) {
+    public static int tableSizeFor(int cap) {
         int n = cap - 1;
         n |= n >>> 1;
         n |= n >>> 2;
         n |= n >>> 4;
         n |= n >>> 8;
         n |= n >>> 16;
-        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
-    }
-
-    public static void main(String[] args) {
-
-        HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("test", "test123");
-        System.out.println(hashMap.get("test"));
-        System.out.println(hashMap.put("test", "2312"));
-        System.out.println(hashMap.get("test"));
-        for (int i = 0; i < 500; i++) {
-            hashMap.put("key" + i, "value" + i);
+        if (n < 0) {
+            return 1;
+        } else {
+            return (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
         }
-        for (int i = 0; i < 500; i++) {
-            System.out.println(hashMap.get("key" + i));
-        }
-        System.out.println(hashMap.size);
-        System.out.println(hashMap.capacity);
     }
 }
