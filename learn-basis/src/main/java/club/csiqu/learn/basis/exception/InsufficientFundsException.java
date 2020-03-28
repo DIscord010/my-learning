@@ -7,7 +7,7 @@ class InsufficientFundsException extends Exception {
 
     private static final long serialVersionUID = -8672262033100609324L;
 
-    private int amount;
+    private final int amount;
 
     InsufficientFundsException(int amount) {
         super("金额不足，差值为 " + amount);
