@@ -11,6 +11,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +21,8 @@ import java.util.concurrent.TimeUnit;
  * @since 2019/9/19 15:21
  */
 class HttpClientHolder {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientHolder.class);
 
     /** 连接池最大连接数 */
     private static final int POOL_MAX_TOTAL = 200;
@@ -62,6 +66,8 @@ class HttpClientHolder {
         idleThread.start();
     }
 
+    private HttpClientHolder() {}
+
     static CloseableHttpClient getHttpClient() {
         return httpClient;
     }
@@ -83,11 +89,14 @@ class HttpClientHolder {
 
         @Override
         public void run() {
+            if (Thread.currentThread().isInterrupted()) {
+                LOGGER.warn("失效连接处理线程出现中断");
+            }
             // 每间隔 2秒钟进行连接清理
             try {
-                this.wait(2000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
             // 关闭过期的连接（服务端会返回约定的过期时间，如果没有返回默认的策略设置为永久有效）
             manager.closeExpiredConnections();

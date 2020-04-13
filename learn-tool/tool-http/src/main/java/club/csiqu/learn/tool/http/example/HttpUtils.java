@@ -1,5 +1,6 @@
 package club.csiqu.learn.tool.http.example;
 
+import org.apache.commons.codec.Charsets;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpStatus;
@@ -24,17 +25,16 @@ public class HttpUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpUtils.class);
 
-    private HttpUtils() {
-    }
+    private HttpUtils() {}
 
     public static String doPost(String url, List<Header> headers, List<NameValuePair> params) {
         HttpPost httpPost = new HttpPost(url);
-        if (headers != null && headers.size() > 0) {
+        if (headers != null && !headers.isEmpty()) {
             for (Header header : headers) {
                 httpPost.addHeader(header);
             }
         }
-        if (params != null && params.size() > 0) {
+        if (params != null && !params.isEmpty()) {
             httpPost.setEntity(new UrlEncodedFormEntity(params, StandardCharsets.UTF_8));
         }
         try (CloseableHttpResponse response = HttpClientHolder.getHttpClient().execute(httpPost)) {
@@ -45,10 +45,10 @@ public class HttpUtils {
             if (statusCode == HttpStatus.SC_OK) {
                 HttpEntity entity = response.getEntity();
                 if (entity != null) {
-                    return EntityUtils.toString(entity, "UTF-8");
+                    return EntityUtils.toString(entity, Charsets.UTF_8);
                 }
             } else {
-                LOGGER.warn("POST请求响应状态码异常，URL为 {}，状态码为 {}", url, statusCode);
+                LOGGER.warn("POST请求响应状态码异常，URL为{}，状态码为{}", url, statusCode);
             }
         } catch (IOException e) {
             LOGGER.warn("POST请求IO异常：{}", e.getMessage());
@@ -65,7 +65,7 @@ public class HttpUtils {
      */
     public static String doGet(String url, List<Header> headers) {
         HttpGet httpGet = new HttpGet(url);
-        if (headers != null && headers.size() > 0) {
+        if (headers != null && !headers.isEmpty()) {
             for (Header header : headers) {
                 httpGet.addHeader(header);
             }
@@ -78,10 +78,10 @@ public class HttpUtils {
             if (statusCode == HttpStatus.SC_OK) {
                 HttpEntity entity = response.getEntity();
                 if (entity != null) {
-                    return EntityUtils.toString(entity, "UTF-8");
+                    return EntityUtils.toString(entity, Charsets.UTF_8);
                 }
             } else {
-                LOGGER.warn("GET请求响应状态码异常，URL为 {}，状态码为 {}", url, statusCode);
+                LOGGER.warn("GET请求响应状态码异常，URL为{}，状态码为{}", url, statusCode);
             }
         } catch (IOException e) {
             LOGGER.warn("GET请求IO异常：{}", e.getMessage());
