@@ -20,6 +20,6 @@ class DemoDataListenerTest {
         InputStream inputStream = new FileInputStream("./src/test/resources/file/excel/easyExcel.xls");
         DemoDataListener demoDataListener = new DemoDataListener();
         EasyExcel.read(inputStream, DemoData.class, demoDataListener).sheet().doRead();
-        assertEquals(1,demoDataListener.list.size());
+        assertEquals(1,demoDataListener.getDataList().size());
     }
 }

@@ -20,11 +20,12 @@ public class DemoDataListener extends AnalysisEventListener<DemoData> {
     /** 每隔 5条存储数据库，实际使用中可以 3000条，然后清理 list，方便内存回收 */
     private static final int BATCH_COUNT = 5;
 
-    public List<DemoData> list = new ArrayList<>();
+    private List<DemoData> list = new ArrayList<>();
 
     @Override
     public void invoke(DemoData data, AnalysisContext context) {
-        LOGGER.info("解析到一条数据:{}", JSON.toJSONString(data));
+        String jsonData = JSON.toJSONString(data);
+        LOGGER.info("解析到一条数据:{}", jsonData);
         list.add(data);
         if (list.size() >= BATCH_COUNT) {
             saveData();
@@ -37,6 +38,10 @@ public class DemoDataListener extends AnalysisEventListener<DemoData> {
         // 剩余的不足 BATCH_COUNT条数的数据
         saveData();
         LOGGER.info("所有数据解析完成！");
+    }
+
+    public List<DemoData> getDataList() {
+        return this.list;
     }
 
     /**
