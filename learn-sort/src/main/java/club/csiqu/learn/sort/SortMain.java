@@ -1,4 +1,4 @@
-package cclub.csiqu.learn.sort;
+package club.csiqu.learn.sort;
 
 /**
  * 排序算法时间测试

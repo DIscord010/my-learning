@@ -1,4 +1,4 @@
-package cclub.csiqu.learn.sort;
+package club.csiqu.learn.sort;
 
 /**
  * 插入排序

@@ -1,4 +1,4 @@
-package cclub.csiqu.learn.sort;
+package club.csiqu.learn.sort;
 
 /**
  * 计数排序，以空间换时间。
