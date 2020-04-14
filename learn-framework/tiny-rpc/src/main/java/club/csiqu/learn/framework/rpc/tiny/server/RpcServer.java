@@ -25,7 +25,7 @@ public class RpcServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcServer.class);
 
     /** 服务列表 */
-    protected static final ConcurrentHashMap<String, String> SERVER_LIST = new ConcurrentHashMap<>(16);
+    static final ConcurrentMap<String, String> SERVER_LIST = new ConcurrentHashMap<>(16);
 
     private ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
             .setNameFormat("rpc-server-pool-%d").build();
@@ -59,32 +59,36 @@ public class RpcServer {
                 if (socket == null) {
                     continue;
                 }
-                try (InputStream in = socket.getInputStream();
-                     ObjectInputStream objectIn = new ObjectInputStream(in);
-                     OutputStream out = socket.getOutputStream();
-                     ObjectOutputStream objectOut = new ObjectOutputStream(out)) {
-                    RpcTransfer rpcTransfer = (RpcTransfer)objectIn.readObject();
-                    String className = rpcTransfer.getClazzName();
-                    Class<?> clazz = Class.forName(SERVER_LIST.get(className));
-                    Object o = clazz.newInstance();
-                    Method method = clazz.getMethod(rpcTransfer.getMethodName(), rpcTransfer.getClazzs());
-                    // 写入返回对象
-                    Object result = method.invoke(o, rpcTransfer.getArgs());
-                    objectOut.writeObject(result);
-                } catch (ClassNotFoundException e) {
-                    LOGGER.warn("RPC传输对象反序列化错误，对应类型不存在：{}", e.getMessage());
-                } catch (IllegalAccessException e) {
-                    LOGGER.warn("调用方法非法访问：{}", e.getMessage());
-                } catch (InstantiationException e) {
-                    LOGGER.warn("反射实例化异常：{}", e.getMessage());
-                } catch (InvocationTargetException e) {
-                    LOGGER.warn("反射调用目标方法异常：{}", e.getMessage());
-                } catch (NoSuchMethodException e) {
-                    LOGGER.warn("未找到目标方法：{}", e.getMessage());
-                } catch (IOException e) {
-                    LOGGER.warn("IO传输异常，可能为客户端突然关闭连接：{}", e.getMessage());
-                }
+                receiveDataHandler(socket);
             }
         });
+    }
+
+    private void receiveDataHandler(Socket socket) {
+        try (InputStream in = socket.getInputStream();
+             ObjectInputStream objectIn = new ObjectInputStream(in);
+             OutputStream out = socket.getOutputStream();
+             ObjectOutputStream objectOut = new ObjectOutputStream(out)) {
+            RpcTransfer rpcTransfer = (RpcTransfer)objectIn.readObject();
+            String className = rpcTransfer.getClazzName();
+            Class<?> clazz = Class.forName(SERVER_LIST.get(className));
+            Object o = clazz.getDeclaredConstructor().newInstance();
+            Method method = clazz.getMethod(rpcTransfer.getMethodName(), rpcTransfer.getClazzs());
+            // 写入返回对象
+            Object result = method.invoke(o, rpcTransfer.getArgs());
+            objectOut.writeObject(result);
+        } catch (ClassNotFoundException e) {
+            LOGGER.warn("RPC传输对象反序列化错误，对应类型不存在：{}", e.getMessage());
+        } catch (IllegalAccessException e) {
+            LOGGER.warn("调用方法非法访问：{}", e.getMessage());
+        } catch (InstantiationException e) {
+            LOGGER.warn("反射实例化异常：{}", e.getMessage());
+        } catch (InvocationTargetException e) {
+            LOGGER.warn("反射调用目标方法异常：{}", e.getMessage());
+        } catch (NoSuchMethodException e) {
+            LOGGER.warn("未找到目标方法：{}", e.getMessage());
+        } catch (IOException e) {
+            LOGGER.warn("IO传输异常，可能为客户端突然关闭连接：{}", e.getMessage());
+        }
     }
 }
