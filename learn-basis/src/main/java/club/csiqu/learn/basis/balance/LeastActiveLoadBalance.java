@@ -34,6 +34,7 @@ public class LeastActiveLoadBalance extends BaseLoadBalance {
         if (leastCount == 1) {
             return invokers.get(leastIndexs[0]);
         } else {
+            // [0,leastCount)
             int index = ThreadLocalRandom.current().nextInt(leastCount);
             return invokers.get(leastIndexs[index]);
         }
