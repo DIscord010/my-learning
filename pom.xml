@@ -27,11 +27,11 @@
         <module>learn-framework</module>
         <module>learn-pattern</module>
         <module>learn-practice</module>
-        <module>learn-sort</module>
         <module>learn-structure</module>
         <module>learn-tool</module>
         <module>learn-concurrent</module>
         <module>learn-config</module>
+        <module>learn-algorithm</module>
     </modules>
 
     <dependencyManagement>
