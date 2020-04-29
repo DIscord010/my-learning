@@ -4,6 +4,10 @@ import java.util.Random;
 
 class ArrayUtils {
 
+    private static final Random RANDOM = new Random();
+
+    private ArrayUtils() {}
+
     /**
      * 产生 0到 {@code scope}范围内的随机数
      *
@@ -12,11 +16,9 @@ class ArrayUtils {
      * @return 随机数数组
      */
     static int[] getRand(int length, int scope) {
-
-        Random random = new Random();
         int[] array = new int[length];
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(scope);
+            array[i] = RANDOM.nextInt(scope);
         }
         return array;
     }
@@ -32,17 +34,5 @@ class ArrayUtils {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
-    }
-
-    /**
-     * 打印数组
-     *
-     * @param array 数组
-     */
-    static void showRand(int[] array) {
-        for (int i1 : array) {
-            System.out.print(" " + i1);
-        }
-        System.out.println();
     }
 }

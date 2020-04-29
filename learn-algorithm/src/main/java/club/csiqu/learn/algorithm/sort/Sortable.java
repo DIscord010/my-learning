@@ -1,5 +1,8 @@
 package club.csiqu.learn.algorithm.sort;
 
+/**
+ * @author Siqu Chen
+ */
 public interface Sortable {
 
     /**

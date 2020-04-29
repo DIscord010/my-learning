@@ -3,10 +3,12 @@ package club.csiqu.learn.algorithm.sort;
 /**
  * 冒泡排序
  * <p>
- * 比较相邻的元素。如果第一个比第二个大，就交换它们两个。
- * 一趟结束，最后的元素会是最大的数。
- * 针对所有的元素重复以上的步骤。
- * 重复步骤 1~3，直到排序完成。
+ * 1.比较相邻的元素。如果第一个比第二个大，就交换它们两个。
+ * 2.一趟结束，最后的元素会是最大的数。
+ * 3.针对所有的元素重复以上的步骤。
+ * 4.重复步骤 1~3，直到排序完成。
+ *
+ * @author Siqu Chen
  */
 public class Bubble implements Sortable {
 
@@ -15,7 +17,7 @@ public class Bubble implements Sortable {
      *
      * @param array 待排序数组
      */
-    public void bubble(int[] array) {
+    public void bubble0(int[] array) {
         int temp;
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
@@ -33,7 +35,7 @@ public class Bubble implements Sortable {
      *
      * @param array 待排序数组
      */
-    public void bubble0(int[] array) {
+    public void bubble1(int[] array) {
         int temp;
         boolean flag = true;
         int length = array.length - 1;
@@ -56,7 +58,7 @@ public class Bubble implements Sortable {
      *
      * @param array 待排序数组
      */
-    private void bubble1(int[] array) {
+    public void bubble2(int[] array) {
         int temp;
         int length;
         int flag = array.length - 1;
@@ -76,6 +78,6 @@ public class Bubble implements Sortable {
 
     @Override
     public void sort(int[] array) {
-        bubble1(array);
+        bubble2(array);
     }
 }
