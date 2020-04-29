@@ -1,5 +1,6 @@
 package club.csiqu.learn.algorithm.balance;
 
+import club.csiqu.learn.algorithm.balance.model.Invoker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -21,6 +22,6 @@ class RandomLoadBalanceTest {
         Invoker invoker2 = new Invoker(0,0);
         invokers.add(invoker1);
         invokers.add(invoker2);
-        Assertions.assertEquals(invoker1,random.doSelect(invokers));
+        Assertions.assertEquals(invoker1,random.select(invokers));
     }
 }

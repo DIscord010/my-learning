@@ -1,5 +1,6 @@
 package club.csiqu.learn.algorithm.balance;
 
+import club.csiqu.learn.algorithm.balance.model.Invoker;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ class LeastActiveLoadBalanceTest {
         invokers.add(invoker2);
         invokers.add(invoker3);
         invokers.add(invoker4);
-        Invoker target = random.doSelect(invokers);
+        Invoker target = random.select(invokers);
         assertTrue(target == invoker1 || target == invoker4);
     }
 }

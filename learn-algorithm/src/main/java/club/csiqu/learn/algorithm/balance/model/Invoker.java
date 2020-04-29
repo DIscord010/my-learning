@@ -1,4 +1,4 @@
-package club.csiqu.learn.algorithm.balance;
+package club.csiqu.learn.algorithm.balance.model;
 
 /**
  * @author Siqu Chen 2020/4/6

@@ -1,5 +1,7 @@
 package club.csiqu.learn.algorithm.balance;
 
+import club.csiqu.learn.algorithm.balance.model.Invoker;
+
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
