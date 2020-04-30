@@ -14,22 +14,22 @@ import java.util.Map;
 public class StreamDemoTest {
 
     @Test
-    public void count() {
+    public void testCount() {
         List<Integer> list = Arrays.asList(1, 2, 3);
-        Assertions.assertEquals(StreamDemo.count(list), 2);
+        Assertions.assertEquals(2, StreamDemo.count(list));
     }
 
     @Test
-    public void list2Map() {
+    public void testListToMap() {
         List<Integer> list = Arrays.asList(1, 2, 3);
         Map<Integer, Integer> map = StreamDemo.list2Map(list);
         Assertions.assertEquals(map.get(1), new Integer(1));
     }
 
     @Test
-    public void accept() {
+    public void testAccept() {
         StringBuilder s = new StringBuilder("chen");
         StreamDemo.accept(s);
-        Assertions.assertEquals(s.toString(), "chenhello");
+        Assertions.assertEquals("chenhello", s.toString());
     }
 }
