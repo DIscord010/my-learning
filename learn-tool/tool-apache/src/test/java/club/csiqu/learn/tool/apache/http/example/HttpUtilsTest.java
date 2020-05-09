@@ -1,4 +1,4 @@
-package club.csiqu.learn.tool.http.example;
+package club.csiqu.learn.tool.apache.http.example;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -30,13 +30,13 @@ public class HttpUtilsTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpUtilsTest.class);
 
-    private static final String GET_URL = "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=17705911650";
+    private static final String GET_URL = "http://tj.nineton.cn/Heart/index/all?city=CHSH000000";
 
-    private static final String POST_URL = "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm";
+    private static final String POST_URL = "http://tj.nineton.cn/Heart/index/all";
 
     @Test
     public void testHttpUtils() {
-        NameValuePair pair = new BasicNameValuePair("tel", "17705911650");
+        NameValuePair pair = new BasicNameValuePair("city", "CHSH000000");
         List<NameValuePair> params = new ArrayList<>(1);
         params.add(pair);
         String postResult = HttpUtils.doPost(POST_URL, null, params);

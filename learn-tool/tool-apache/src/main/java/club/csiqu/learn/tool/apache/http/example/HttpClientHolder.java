@@ -1,4 +1,4 @@
-package club.csiqu.learn.tool.http.example;
+package club.csiqu.learn.tool.apache.http.example;
 
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.config.Registry;

@@ -1,4 +1,4 @@
-package club.csiqu.learn.tool.http;
+package club.csiqu.learn.tool.apache.http;
 
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
@@ -60,7 +60,9 @@ public class HttpClientMain {
 
         return (exception, executionCount, context) -> {
 
-            LOGGER.info("try request: " + executionCount);
+            if (LOGGER.isInfoEnabled()) {
+                LOGGER.info("try request: {}", executionCount);
+            }
 
             if (executionCount >= 3) {
                 // Do not retry if over max retry count

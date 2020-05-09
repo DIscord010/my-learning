@@ -1,4 +1,4 @@
-package club.csiqu.learn.tool.http.example;
+package club.csiqu.learn.tool.apache.http.example;
 
 import org.apache.commons.codec.Charsets;
 import org.apache.http.Header;
