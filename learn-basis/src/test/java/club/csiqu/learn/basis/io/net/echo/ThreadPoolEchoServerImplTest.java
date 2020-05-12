@@ -1,7 +1,7 @@
-package club.csiqu.learn.basis.io.socket.echo;
+package club.csiqu.learn.basis.io.net.echo;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.DataInputStream;
@@ -10,18 +10,18 @@ import java.io.IOException;
 import java.net.Socket;
 
 /**
- * @author Siqu Chen 2020/3/2
+ * @author Siqu Chen 2020/5/7
  * @since 1.0.0
  */
-class EchoServerTest {
+class ThreadPoolEchoServerImplTest {
 
-    @BeforeEach
-    void init() throws IOException {
-        new EchoServer().service();
+    @BeforeAll
+    static void initServer() throws IOException {
+        new ThreadPoolEchoServerImpl().service();
     }
 
     @Test
-    void testEchoServer() throws IOException {
+    void testEchoServerImpl() throws IOException {
         Socket client = new Socket("localhost", 8000);
         DataOutputStream out = new DataOutputStream(client.getOutputStream());
         DataInputStream in = new DataInputStream(client.getInputStream());
