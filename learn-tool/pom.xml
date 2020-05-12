@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>tool-excel</module>
-        <module>tool-http</module>
+        <module>tool-apache</module>
         <module>tool-btrace</module>
     </modules>
 
