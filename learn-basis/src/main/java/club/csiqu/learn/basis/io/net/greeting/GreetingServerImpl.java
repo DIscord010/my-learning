@@ -1,7 +1,7 @@
 package club.csiqu.learn.basis.io.net.greeting;
 
 import club.csiqu.learn.basis.io.net.AbstractStopServer;
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import club.csiqu.learn.basis.io.net.ExecutorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,9 +11,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 单线程 Socket服务端
@@ -31,13 +28,7 @@ public class GreetingServerImpl extends AbstractStopServer {
     private final ServerSocket serverSocket;
 
     /** 单线程进行连接请求处理和客户端连接处理 */
-    private final Executor executor = new ThreadPoolExecutor(
-            1,
-            1,
-            5L,
-            TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>(1000),
-            new ThreadFactoryBuilder().setNameFormat("greeting-server-pool-%d").build());
+    private final Executor executor = ExecutorFactory.newSingleThreadExecutor("greeting-server-pool-%d");
 
     public GreetingServerImpl(int port) throws IOException {
         serverSocket = new ServerSocket(port);

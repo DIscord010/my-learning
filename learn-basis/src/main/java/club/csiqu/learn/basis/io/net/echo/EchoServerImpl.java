@@ -1,7 +1,7 @@
 package club.csiqu.learn.basis.io.net.echo;
 
 import club.csiqu.learn.basis.io.net.AbstractStopServer;
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import club.csiqu.learn.basis.io.net.ExecutorFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Echo Server.
@@ -28,13 +25,7 @@ public class EchoServerImpl extends AbstractStopServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(EchoServerImpl.class);
 
     /** 接收客户端连接请求线程 */
-    private final Executor executor = new ThreadPoolExecutor(
-            1,
-            1,
-            5L,
-            TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>(1000),
-            new ThreadFactoryBuilder().setNameFormat("echo-server-pool-%d").build());
+    private final Executor executor = ExecutorFactory.newSingleThreadExecutor("echo-server-pool-%d");
 
     private final ServerSocket serverSocket;
 

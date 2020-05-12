@@ -1,6 +1,7 @@
 package club.csiqu.learn.basis.io.net.echo;
 
 import club.csiqu.learn.basis.io.net.AbstractStopServer;
+import club.csiqu.learn.basis.io.net.ExecutorFactory;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,9 @@ public class ThreadPoolEchoServerImpl extends AbstractStopServer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ThreadPoolEchoServerImpl.class);
 
+    /** 接收客户端连接请求线程 */
+    private final Executor bossExecutor = ExecutorFactory.newSingleThreadExecutor("echo-server-pool-boss-%d");
+
     /** 客户端连接处理线程 */
     private final Executor workExecutor = new ThreadPoolExecutor(
             5,
@@ -29,15 +33,6 @@ public class ThreadPoolEchoServerImpl extends AbstractStopServer {
             TimeUnit.SECONDS,
             new LinkedBlockingQueue<>(1000),
             new ThreadFactoryBuilder().setNameFormat("echo-server-pool-work-%d").build());
-
-    /** 接收客户端连接请求线程 */
-    private final Executor bossExecutor = new ThreadPoolExecutor(
-            1,
-            1,
-            5L,
-            TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>(1000),
-            new ThreadFactoryBuilder().setNameFormat("echo-server-pool-boss-%d").build());
 
     private final ServerSocket serverSocket;
 
