@@ -11,10 +11,6 @@
     <artifactId>learn-basis</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>club.csiqu.learn</groupId>
-            <artifactId>learn-config</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.google.guava</groupId>
