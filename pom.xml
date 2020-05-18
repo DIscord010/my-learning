@@ -37,6 +37,12 @@
     <dependencyManagement>
         <dependencies>
 
+            <dependency>
+                <groupId>club.csiqu.learn</groupId>
+                <artifactId>learn-config</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!-- springframework start -->
             <dependency>
                 <groupId>org.springframework</groupId>
