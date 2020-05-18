@@ -11,22 +11,21 @@ import club.csiqu.learn.pattern.singleton.Constants;
  * @author Siqu Chen 2020/5/17
  * @since 1.0.0
  */
-public class DubboCheckLazySingleton {
+public class DoubleCheckLazySingleton {
 
     /**
      * 不加 {@code volatile}关键字经过测试也没出现空指针问题，需要再确认
      */
-    private static volatile DubboCheckLazySingleton dubboCheckLazySingleton;
+    private static volatile DoubleCheckLazySingleton dubboCheckLazySingleton;
 
-    private DubboCheckLazySingleton() {}
+    private DoubleCheckLazySingleton() {}
 
-    public static DubboCheckLazySingleton getInstance() {
+    public static DoubleCheckLazySingleton getInstance() {
         if (dubboCheckLazySingleton == null) {
-            synchronized (DubboCheckLazySingleton.class) {
+            synchronized (DoubleCheckLazySingleton.class) {
                 if (dubboCheckLazySingleton == null) {
-                    dubboCheckLazySingleton = new DubboCheckLazySingleton();
+                    dubboCheckLazySingleton = new DoubleCheckLazySingleton();
                 }
-
             }
         }
         return dubboCheckLazySingleton;

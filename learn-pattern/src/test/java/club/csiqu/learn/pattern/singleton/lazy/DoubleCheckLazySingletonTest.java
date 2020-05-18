@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
  * @author Siqu Chen 2020/5/17
  * @since 1.0.0
  */
-class DubboCheckLazySingletonTest {
+class DoubleCheckLazySingletonTest {
 
     @Test
     void testGetInstance() {
-        DubboCheckLazySingleton instance0 = DubboCheckLazySingleton.getInstance();
+        DoubleCheckLazySingleton instance0 = DoubleCheckLazySingleton.getInstance();
         Assertions.assertEquals("hello", instance0.sayHello());
-        DubboCheckLazySingleton instance1 = DubboCheckLazySingleton.getInstance();
+        DoubleCheckLazySingleton instance1 = DoubleCheckLazySingleton.getInstance();
         Assertions.assertEquals(instance0, instance1);
     }
 

@@ -1,4 +1,4 @@
-package club.csiqu.learn.pattern.singleton.hugry;
+package club.csiqu.learn.pattern.singleton.hungry;
 
 import club.csiqu.learn.pattern.singleton.Constants;
 
@@ -12,13 +12,13 @@ import club.csiqu.learn.pattern.singleton.Constants;
  * @author Siqu Chen 2020/5/14
  * @since 1.0.0
  */
-public class SimpleHugrySingleton {
+public class SimpleHungrySingleton {
 
-    private static final SimpleHugrySingleton INSTANCE = new SimpleHugrySingleton();
+    private static final SimpleHungrySingleton INSTANCE = new SimpleHungrySingleton();
 
-    private SimpleHugrySingleton() {}
+    private SimpleHungrySingleton() {}
 
-    public static SimpleHugrySingleton getInstance() {
+    public static SimpleHungrySingleton getInstance() {
         return INSTANCE;
     }
 
