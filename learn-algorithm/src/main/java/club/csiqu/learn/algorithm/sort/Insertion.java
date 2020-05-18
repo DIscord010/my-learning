@@ -3,12 +3,14 @@ package club.csiqu.learn.algorithm.sort;
 /**
  * 插入排序
  * <p>
- * 从第一个元素开始，该元素可以认为已经被排序。
- * 取出下一个元素，在已经排序的元素序列中从后向前扫描。
- * 如果该元素(已排序)大于新元素，将该元素移到下一位置。
- * 重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置。
- * 将新元素插入到该位置后。
- * 重复步骤 2~5。
+ * 1.从第一个元素开始，该元素可以认为已经被排序。
+ * 2.取出下一个元素，在已经排序的元素序列中从后向前扫描。
+ * 3.如果该元素（已排序）大于新元素，将该元素移到下一位置。
+ * 4.重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置。
+ * 5.将新元素插入到该位置后。
+ * 6.重复步骤 2~5。
+ *
+ * @author Siqu Chen
  */
 public class Insertion implements Sortable {
 
@@ -32,11 +34,11 @@ public class Insertion implements Sortable {
     }
 
     /**
-     * 优化后，if中少交换一次，在跳出内循环后进行交换。
+     * 优化后，每次判断可以少交换一次，在跳出内循环后进行交换。
      *
      * @param array 待排序数组
      */
-    private void insert1(int[] array) {
+    public void insert1(int[] array) {
         int temp;
 
         for (int i = 1; i < array.length; i++) {

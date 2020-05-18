@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 /**
- * @author Siqu Chen 2020/4/29
+ * @author Siqu Chen 2020/5/18
  * @since 1.0.0
  */
-class BubbleTest {
+class InsertionTest {
 
-    Bubble bubble = new Bubble();
+    Insertion insertion = new Insertion();
 
     int[] array0;
 
@@ -26,23 +26,15 @@ class BubbleTest {
     }
 
     @Test
-    void testBubble0() {
-        bubble.bubble0(array0);
+    void testInsert0() {
+        insertion.insert0(array0);
         Arrays.sort(array1);
         Assertions.assertArrayEquals(array0, array1);
     }
 
     @Test
-    void testBubble1() {
-        bubble.bubble1(array0);
-        Arrays.sort(array1);
-        Assertions.assertArrayEquals(array0, array1);
-    }
-
-
-    @Test
-    void testBubble2() {
-        bubble.bubble2(array0);
+    void testInsert1() {
+        insertion.insert1(array0);
         Arrays.sort(array1);
         Assertions.assertArrayEquals(array0, array1);
     }
