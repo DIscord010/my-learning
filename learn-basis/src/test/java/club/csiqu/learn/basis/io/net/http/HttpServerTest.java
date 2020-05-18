@@ -20,13 +20,13 @@ class HttpServerTest {
 
     @BeforeAll
     static void initServer() throws IOException {
-        new HttpServer(8000).service();
+        new HttpServer(8003).service();
     }
 
     @Test
     void testHttpServer() throws IOException {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
-            HttpGet httpGet = new HttpGet("http://127.0.0.1:8000/test");
+            HttpGet httpGet = new HttpGet("http://127.0.0.1:8003/test");
             CloseableHttpResponse response = httpClient.execute(httpGet);
             HttpEntity entity = response.getEntity();
             Assertions.assertEquals("<h1>File Not Found</h1>", EntityUtils.toString(entity));

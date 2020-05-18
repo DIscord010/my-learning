@@ -29,8 +29,7 @@ public class EchoServerImpl extends AbstractStopServer {
 
     private final ServerSocket serverSocket;
 
-    EchoServerImpl() throws IOException {
-        int port = 8000;
+    EchoServerImpl(int port) throws IOException {
         serverSocket = new ServerSocket(port);
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("EchoServer start");

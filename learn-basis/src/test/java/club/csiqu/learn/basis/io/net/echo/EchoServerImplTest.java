@@ -17,7 +17,7 @@ class EchoServerImplTest {
 
     @BeforeAll
     static void initServer() throws IOException {
-        new EchoServerImpl().service();
+        new EchoServerImpl(8000).service();
     }
 
     @Test

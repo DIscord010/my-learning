@@ -36,8 +36,7 @@ public class ThreadPoolEchoServerImpl extends AbstractStopServer {
 
     private final ServerSocket serverSocket;
 
-    public ThreadPoolEchoServerImpl() throws IOException {
-        int port = 8000;
+    public ThreadPoolEchoServerImpl(int port) throws IOException {
         serverSocket = new ServerSocket(port);
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("Server start.");

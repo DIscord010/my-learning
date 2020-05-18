@@ -17,12 +17,12 @@ class GreetingServerTest {
 
     @BeforeAll
     static void initServer() throws IOException {
-        new GreetingServerImpl(8000).service();
+        new GreetingServerImpl(8002).service();
     }
 
     @Test
     void testEchoServerImpl() throws IOException {
-        Socket client = new Socket("localhost", 8000);
+        Socket client = new Socket("localhost", 8002);
         DataOutputStream out = new DataOutputStream(client.getOutputStream());
         DataInputStream in = new DataInputStream(client.getInputStream());
         String data = "hello from " + client.getLocalAddress();
