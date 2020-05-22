@@ -8,7 +8,7 @@ import java.util.List;
  * @author Siqu Chen 2020/4/6
  * @since 1.0.0
  */
-public abstract class BaseLoadBalance {
+public abstract class AbstractLoadBalance {
 
     public Invoker select(List<Invoker> invokers) {
         if (invokers == null || invokers.isEmpty()) {

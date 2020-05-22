@@ -9,24 +9,24 @@ public class Invoker {
     /**
      * 权重
      */
-    private Integer weigth;
+    private Integer weight;
 
     /**
      * 当前调用数
      */
     private Integer count;
 
-    public Invoker(Integer weigth, Integer count) {
-        this.weigth = weigth;
+    public Invoker(Integer weight, Integer count) {
+        this.weight = weight;
         this.count = count;
     }
 
-    public Integer getWeigth() {
-        return weigth;
+    public Integer getWeight() {
+        return weight;
     }
 
-    public void setWeigth(Integer weigth) {
-        this.weigth = weigth;
+    public void setWeight(Integer weigth) {
+        this.weight = weigth;
     }
 
     public Integer getCount() {

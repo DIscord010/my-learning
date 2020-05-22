@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class LeastActiveLoadBalanceTest {
 
-    BaseLoadBalance random = new LeastActiveLoadBalance();
+    AbstractLoadBalance leastActiveLoadBalance = new LeastActiveLoadBalance();
 
     @Test
-    void doSelect() {
+    void testSelect() {
         List<Invoker> invokers = new ArrayList<>(2);
         Invoker invoker1 = new Invoker(100, 10);
         Invoker invoker2 = new Invoker(100, 50);
@@ -27,7 +27,7 @@ class LeastActiveLoadBalanceTest {
         invokers.add(invoker2);
         invokers.add(invoker3);
         invokers.add(invoker4);
-        Invoker target = random.select(invokers);
+        Invoker target = leastActiveLoadBalance.select(invokers);
         assertTrue(target == invoker1 || target == invoker4);
     }
 }
