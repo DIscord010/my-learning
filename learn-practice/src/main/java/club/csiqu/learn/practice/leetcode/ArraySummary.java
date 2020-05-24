@@ -39,7 +39,8 @@ public class ArraySummary {
      */
     public int minMoves2Median(int[] nums) {
         Arrays.sort(nums);
-        int mid, r = 0;
+        int mid;
+        int r = 0;
         if (nums.length % 2 == 1) {
             mid = nums[nums.length / 2];
         } else {
