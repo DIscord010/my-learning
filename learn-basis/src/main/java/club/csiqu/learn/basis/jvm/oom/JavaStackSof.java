@@ -1,4 +1,7 @@
-package club.csiqu.learn.basis.jvm;
+package club.csiqu.learn.basis.jvm.oom;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 栈溢出异常验证
@@ -8,24 +11,24 @@ package club.csiqu.learn.basis.jvm;
  * @author chensiqu
  * @since 2019/7/1 22:50
  */
-public class JavaVMStackSOF {
+public class JavaStackSof {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(JavaStackSof.class);
 
     private int stackLength = 1;
 
     @SuppressWarnings("InfiniteRecursion")
     private void stackLeak() {
-
         stackLength++;
         stackLeak();
     }
 
     public static void main(String[] args) {
-        JavaVMStackSOF oom = new JavaVMStackSOF();
-
+        JavaStackSof oom = new JavaStackSof();
         try {
             oom.stackLeak();
         } catch (Throwable e) {
-            System.out.println("stack length:" + oom.stackLength);
+            LOGGER.info("stackLength：{}", oom.stackLength);
             throw e;
         }
     }

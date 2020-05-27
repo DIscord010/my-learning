@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm;
+package club.csiqu.learn.basis.jvm.oom;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
@@ -15,25 +15,18 @@ import net.sf.cglib.proxy.MethodInterceptor;
  * @author chensiqu
  * @since 2019/7/1 22:57
  */
-public class JavaMethodAreaOOM {
+public class JavaMethodAreaOom {
 
-    public static class OOMObject {
-        public String sayHello(String str) {
-            return "HI " + str;
-        }
-    }
-
-    @SuppressWarnings("InfiniteLoopStatement")
+    @SuppressWarnings({"InfiniteLoopStatement"})
     public static void main(String[] args) {
-
         while (true) {
             Enhancer enhancer = new Enhancer();
-            enhancer.setSuperclass(OOMObject.class);
+            enhancer.setSuperclass(OomObject.class);
             enhancer.setUseCache(false);
-            enhancer.setCallback((MethodInterceptor) (obj, arg1, args1, proxy)
+            enhancer.setCallback((MethodInterceptor)(obj, arg1, args1, proxy)
                     -> proxy.invokeSuper(obj, args1));
-            OOMObject oom = (OOMObject) enhancer.create();
-            oom.sayHello("Chen");
+            OomObject oom = (OomObject)enhancer.create();
+            oom.getOom();
         }
     }
 }
