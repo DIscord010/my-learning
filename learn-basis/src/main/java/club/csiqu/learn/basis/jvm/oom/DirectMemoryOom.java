@@ -15,9 +15,8 @@ import java.lang.reflect.Field;
  */
 public class DirectMemoryOom {
 
-    private static final int MB_1 = 1024 * 1024;
+    private static final int MEMORY_SIZE_1_MB = 1024 * 1024;
 
-    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) throws IllegalAccessException {
         Field unsafeField = Unsafe.class.getDeclaredFields()[0];
         unsafeField.setAccessible(true);
@@ -25,7 +24,7 @@ public class DirectMemoryOom {
         while (true) {
             // 打印循环次数时发现执行了 25000+次，并且调整 -XX:MaxDirectMemorySize后结果无任何区别。
             // 此处代码不一定正确，暂无结论。
-            unsafe.allocateMemory(MB_1);
+            unsafe.allocateMemory(MEMORY_SIZE_1_MB);
         }
     }
 }

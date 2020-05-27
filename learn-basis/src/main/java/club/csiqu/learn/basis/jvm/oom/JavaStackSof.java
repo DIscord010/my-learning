@@ -17,7 +17,6 @@ public class JavaStackSof {
 
     private int stackLength = 1;
 
-    @SuppressWarnings("InfiniteRecursion")
     private void stackLeak() {
         stackLength++;
         stackLeak();

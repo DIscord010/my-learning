@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class HeapOom {
 
-    @SuppressWarnings({"InfiniteLoopStatement"})
     public static void main(String[] args) {
         List<OomObject> list = new ArrayList<>();
         while (true) {
