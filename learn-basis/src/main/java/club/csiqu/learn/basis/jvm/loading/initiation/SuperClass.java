@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/24 21:20
  */
-public class SuperClass {
+class SuperClass {
 
     SuperClass() {}
 

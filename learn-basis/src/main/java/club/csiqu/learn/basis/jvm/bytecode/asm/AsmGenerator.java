@@ -1,6 +1,5 @@
-package club.csiqu.learn.basis.jvm.bytecode.asm.application;
+package club.csiqu.learn.basis.jvm.bytecode.asm;
 
-import club.csiqu.learn.basis.jvm.bytecode.asm.MyClassVisitor;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;

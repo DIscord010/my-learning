@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/24 21:26
  */
-public class Constants {
+class Constants {
 
     private Constants() {}
 
@@ -17,5 +17,5 @@ public class Constants {
         LOGGER.info("Constants init");
     }
 
-    public static final String HELLO_WORLD = "hello world！";
+    static final String HELLO_WORLD = "hello world！";
 }

@@ -8,7 +8,7 @@ import org.objectweb.asm.Opcodes;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/12 15:49
  */
-public class MyClassVisitor extends ClassVisitor implements Opcodes {
+class MyClassVisitor extends ClassVisitor implements Opcodes {
 
     public MyClassVisitor(ClassVisitor cv) {
         super(ASM5, cv);
@@ -24,7 +24,7 @@ public class MyClassVisitor extends ClassVisitor implements Opcodes {
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         MethodVisitor mv = cv.visitMethod(access, name, descriptor, signature, exceptions);
         // 不增强构造方法
-        if (!"<init>".equals(name) && !"<clinit>".equals(name) &&mv != null) {
+        if (!"<init>".equals(name) && !"<clinit>".equals(name) && mv != null) {
             mv = new MyMethodVisitor(mv);
         }
         return mv;

@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.bytecode.javassist.application;
+package club.csiqu.learn.basis.jvm.bytecode.javassist;
 
 import club.csiqu.learn.basis.jvm.bytecode.Base;
 import javassist.CannotCompileException;

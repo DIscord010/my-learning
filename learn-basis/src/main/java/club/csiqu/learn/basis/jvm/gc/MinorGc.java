@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.gc.application;
+package club.csiqu.learn.basis.jvm.gc;
 
 /**
  * 新生代 Minor GC测试

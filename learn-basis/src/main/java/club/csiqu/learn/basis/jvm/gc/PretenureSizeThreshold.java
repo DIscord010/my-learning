@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.gc.application;
+package club.csiqu.learn.basis.jvm.gc;
 
 /**
  * 大对象直接进入老年代
