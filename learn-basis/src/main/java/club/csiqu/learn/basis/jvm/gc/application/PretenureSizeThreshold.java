@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.gc;
+package club.csiqu.learn.basis.jvm.gc.application;
 
 /**
  * 大对象直接进入老年代
@@ -11,7 +11,7 @@ package club.csiqu.learn.basis.jvm.gc;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/10 23:23
  */
-public class PretenureSizeThresholdMain {
+public class PretenureSizeThreshold {
 
     private static final int MEMORY_SIZE_1_MB = 1024 * 1024;
 

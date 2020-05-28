@@ -1,5 +1,6 @@
-package club.csiqu.learn.basis.jvm.oom;
+package club.csiqu.learn.basis.jvm.oom.application;
 
+import club.csiqu.learn.basis.jvm.oom.OomObject;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 

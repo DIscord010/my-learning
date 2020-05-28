@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.oom;
+package club.csiqu.learn.basis.jvm.oom.application;
 
 import sun.misc.Unsafe;
 

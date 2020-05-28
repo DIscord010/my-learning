@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.gc;
+package club.csiqu.learn.basis.jvm.gc.application;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,6 @@
-package club.csiqu.learn.basis.jvm.oom;
+package club.csiqu.learn.basis.jvm.oom.application;
+
+import club.csiqu.learn.basis.jvm.oom.OomObject;
 
 import java.util.ArrayList;
 import java.util.List;

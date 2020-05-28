@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.loading.initialtion;
+package club.csiqu.learn.basis.jvm.loading.initiation.application;
 
 /**
  * 反射获取类对象会触发类的初始化
@@ -6,9 +6,9 @@ package club.csiqu.learn.basis.loading.initialtion;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/10/21
  */
-public class ReflectInitialtion {
+public class ReflectInitiation {
 
     public static void main(String[] args) throws ClassNotFoundException {
-        Class.forName("club.csiqu.basis.loading.initialtion.SuperClass");
+        Class.forName("club.csiqu.learn.basis.jvm.loading.initiation.SuperClass");
     }
 }

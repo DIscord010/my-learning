@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.gc;
+package club.csiqu.learn.basis.jvm.gc.application;
 
 /**
  * 新生代 Minor GC测试
@@ -10,7 +10,7 @@ package club.csiqu.learn.basis.jvm.gc;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/8 23:39
  */
-public class AllocationMain {
+public class MinorGc {
 
     private static final int MEMORY_SIZE_1_MB = 1024 * 1024;
 
