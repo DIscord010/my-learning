@@ -1,6 +1,9 @@
 package club.csiqu.learn.tool.btrace;
 
-import com.sun.btrace.annotations.*;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
 
 import static com.sun.btrace.BTraceUtils.println;
 
