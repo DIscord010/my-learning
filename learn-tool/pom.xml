@@ -15,6 +15,7 @@
         <module>tool-excel</module>
         <module>tool-apache</module>
         <module>tool-btrace</module>
+        <module>tool-kafka</module>
     </modules>
 
 </project>
