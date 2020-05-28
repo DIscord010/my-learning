@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm;
+package club.csiqu.learn.basis.jvm.gc;
 
 /**
  * 大对象直接进入老年代
@@ -13,14 +13,9 @@ package club.csiqu.learn.basis.jvm;
  */
 public class PretenureSizeThresholdMain {
 
-    private static final int _1MB = 1024 * 1024;
+    private static final int MEMORY_SIZE_1_MB = 1024 * 1024;
 
-    @SuppressWarnings({"unused", "UnusedAssignment"})
     public static void main(String[] args) {
-
-        byte[] allocation;
-
-        // 出现一次 Minor GC
-        allocation = new byte[_1MB << 2];
+        byte[] allocation = new byte[MEMORY_SIZE_1_MB << 2];
     }
 }
