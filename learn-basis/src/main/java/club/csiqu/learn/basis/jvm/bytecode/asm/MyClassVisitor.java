@@ -10,7 +10,7 @@ import org.objectweb.asm.Opcodes;
  */
 public class MyClassVisitor extends ClassVisitor implements Opcodes {
 
-    MyClassVisitor(ClassVisitor cv) {
+    public MyClassVisitor(ClassVisitor cv) {
         super(ASM5, cv);
     }
 
@@ -23,9 +23,8 @@ public class MyClassVisitor extends ClassVisitor implements Opcodes {
     @Override
     public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
         MethodVisitor mv = cv.visitMethod(access, name, descriptor, signature, exceptions);
-
         // 不增强构造方法
-        if (!"<init>".equals(name) && mv != null) {
+        if (!"<init>".equals(name) && !"<clinit>".equals(name) &&mv != null) {
             mv = new MyMethodVisitor(mv);
         }
         return mv;
@@ -34,7 +33,7 @@ public class MyClassVisitor extends ClassVisitor implements Opcodes {
     /**
      * 方法增强器
      */
-    static class MyMethodVisitor extends MethodVisitor implements Opcodes {
+    public static class MyMethodVisitor extends MethodVisitor implements Opcodes {
 
         MyMethodVisitor(MethodVisitor mv) {
             super(Opcodes.ASM5, mv);
@@ -52,8 +51,8 @@ public class MyClassVisitor extends ClassVisitor implements Opcodes {
 
         @Override
         public void visitInsn(int opcode) {
-            if ((opcode >= Opcodes.IRETURN && opcode <= Opcodes.RETURN)
-                    || opcode == Opcodes.ATHROW) {
+            boolean flag = (opcode >= Opcodes.IRETURN && opcode <= Opcodes.RETURN) || opcode == Opcodes.ATHROW;
+            if (flag) {
                 // 方法在返回之前，打印 "end"
                 mv.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
                 // 对应的操作码就是 ldc "end",即将字符串 "end"压入栈
@@ -64,5 +63,4 @@ public class MyClassVisitor extends ClassVisitor implements Opcodes {
             mv.visitInsn(opcode);
         }
     }
-
 }
