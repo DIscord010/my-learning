@@ -18,16 +18,16 @@ public class RpcProxy {
 
     @SuppressWarnings("unchecked")
     public <T> T getObject(Class<T> clazz) {
-        return (T)Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, new JDKDynamicProxy(clazz.getName()));
+        return (T)Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz}, new JdkDynamicProxy(clazz.getName()));
     }
 
-    private static class JDKDynamicProxy implements InvocationHandler {
+    private static class JdkDynamicProxy implements InvocationHandler {
 
-        private static final Logger LOGGER = LoggerFactory.getLogger(JDKDynamicProxy.class);
+        private static final Logger LOGGER = LoggerFactory.getLogger(JdkDynamicProxy.class);
 
         private String clazzName;
 
-        JDKDynamicProxy(String clazzName) {
+        JdkDynamicProxy(String clazzName) {
             this.clazzName = clazzName;
         }
 

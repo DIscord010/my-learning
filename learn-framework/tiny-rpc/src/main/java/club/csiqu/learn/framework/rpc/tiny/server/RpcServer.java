@@ -5,12 +5,21 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.concurrent.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 简单实现 RPC。
@@ -25,36 +34,32 @@ public class RpcServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcServer.class);
 
     /** 服务列表 */
-    static final ConcurrentMap<String, String> SERVER_LIST = new ConcurrentHashMap<>(16);
+    private static final ConcurrentMap<String, String> SERVER_LIST = new ConcurrentHashMap<>(16);
 
-    private ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
-            .setNameFormat("rpc-server-pool-%d").build();
-
-    private Executor executor = new ThreadPoolExecutor(
+    private final Executor executor = new ThreadPoolExecutor(
             1,
             1,
             0,
             TimeUnit.SECONDS,
             new LinkedBlockingQueue<>(1000),
-            namedThreadFactory);
+            new ThreadFactoryBuilder().setNameFormat("rpc-server-pool-%d").build());
 
-    @SuppressWarnings("InfiniteLoopStatement")
     public void service() {
-        ServerSocket serverSocket;
-        try {
-            serverSocket = new ServerSocket(9999);
-        } catch (IOException e) {
-            LOGGER.error("RPC服务开启失败：{}, 可能为端口被占用", e.getMessage());
-            return;
-        }
         executor.execute(() -> {
+            ServerSocket serverSocket;
+            try {
+                serverSocket = new ServerSocket(9999);
+            } catch (IOException e) {
+                LOGGER.error("服务端启动失败：{}, 可能为端口被占用", e.getMessage());
+                return;
+            }
             while (true) {
                 Socket socket = null;
                 try {
                     // 阻塞等待直到有客户端连接接入
                     socket = serverSocket.accept();
                 } catch (IOException e) {
-                    LOGGER.error("客户端接入时出现IO异常：{}, 可能为客户端关闭连接", e.getMessage());
+                    LOGGER.error("获取客户端接入连接出现IO异常：{}", e.getMessage());
                 }
                 if (socket == null) {
                     continue;
@@ -62,6 +67,10 @@ public class RpcServer {
                 receiveDataHandler(socket);
             }
         });
+    }
+
+    public void addServer(String serviceName, String serviceUrl) {
+        SERVER_LIST.putIfAbsent(serviceName, serviceUrl);
     }
 
     private void receiveDataHandler(Socket socket) {
