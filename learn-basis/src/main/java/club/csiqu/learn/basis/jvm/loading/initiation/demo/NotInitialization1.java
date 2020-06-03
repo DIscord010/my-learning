@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.loading.initiation;
+package club.csiqu.learn.basis.jvm.loading.initiation.demo;
 
 import club.csiqu.learn.basis.jvm.loading.initiation.SuperClass;
 

@@ -1,5 +1,6 @@
-package club.csiqu.learn.basis.jvm.loading.initiation;
+package club.csiqu.learn.basis.jvm.loading.initiation.demo;
 
+import club.csiqu.learn.basis.jvm.loading.initiation.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

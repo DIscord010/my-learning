@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/24 21:20
  */
-class SubClass extends SuperClass {
+public class SubClass extends SuperClass {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SubClass.class);
 
