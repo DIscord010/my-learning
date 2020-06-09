@@ -1,10 +1,11 @@
 package club.csiqu.learn.basis.nio.file;
 
-import com.google.common.base.Stopwatch;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -16,19 +17,18 @@ import java.nio.file.Paths;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/10/17
  */
-public class FileReadMain {
+public class FileUtil {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileReadMain.class);
+    private FileUtil() {}
 
     /**
      * 使用传统的 IO进行文件拷贝
      *
      * @throws IOException IO异常
      */
-    private static void fileCopyByInputStream() throws IOException {
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        File file = new File("F:/test.txt");
-        File copy = new File("F:/copy1.txt");
+    public static void fileCopyByInputStream(String fromPath, String toPath) throws IOException {
+        File file = new File(fromPath);
+        File copy = new File(toPath);
         try (FileInputStream in = new FileInputStream(file);
              FileOutputStream out = new FileOutputStream(copy)) {
 
@@ -38,8 +38,6 @@ public class FileReadMain {
                 out.write(data);
             }
         }
-        stopwatch.stop();
-        LOGGER.info("fileCopyByInputStream time：" + stopwatch);
     }
 
     /**
@@ -47,10 +45,9 @@ public class FileReadMain {
      *
      * @throws IOException IO异常
      */
-    private static void fileCopyByBufferedStream() throws IOException {
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        File file = new File("F:/test.txt");
-        File copy = new File("F:/copy1.txt");
+    public static void fileCopyByBufferedStream(String fromPath, String toPath) throws IOException {
+        File file = new File(fromPath);
+        File copy = new File(toPath);
         try (FileInputStream in = new FileInputStream(file);
              FileOutputStream out = new FileOutputStream(copy);
              BufferedInputStream inputStream = new BufferedInputStream(in);
@@ -62,8 +59,6 @@ public class FileReadMain {
                 outputStream.write(data);
             }
         }
-        stopwatch.stop();
-        LOGGER.info("fileCopyByBufferedStream time：" + stopwatch);
     }
 
     /**
@@ -71,12 +66,12 @@ public class FileReadMain {
      *
      * @throws IOException IO异常
      */
-    private static void fileCopyByChannel() throws IOException {
+    public static void fileCopyByChannel(String fromPath, String toPath) throws IOException {
         // 使用直接内存，申请内存的时间花费高，但是文件拷贝的效率会变高
         //ByteBuffer buffer = ByteBuffer.allocateDirect(2 << 16);
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        File file = new File("F:/test.txt");
-        File copy = new File("F:/copy2.txt");
+
+        File file = new File(fromPath);
+        File copy = new File(toPath);
         try (FileInputStream in = new FileInputStream(file);
              FileChannel channel = in.getChannel();
              FileOutputStream out = new FileOutputStream(copy);
@@ -92,8 +87,6 @@ public class FileReadMain {
                 buffer.clear();
             }
         }
-        stopwatch.stop();
-        LOGGER.info("fileCopyByNIO time：" + stopwatch);
     }
 
     /**
@@ -101,10 +94,9 @@ public class FileReadMain {
      *
      * @throws IOException IO异常
      */
-    private static void fileCopyByMapped() throws IOException {
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        File file = new File("F:/test.txt");
-        File copy = new File("F:/copy3.txt");
+    public static void fileCopyByMapped(String fromPath, String toPath) throws IOException {
+        File file = new File(fromPath);
+        File copy = new File(toPath);
         try (FileInputStream in = new FileInputStream(file);
              FileChannel channel = in.getChannel();
              FileOutputStream out = new FileOutputStream(copy);
@@ -113,8 +105,6 @@ public class FileReadMain {
             MappedByteBuffer buffer = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
             copyChannel.write(buffer);
         }
-        stopwatch.stop();
-        LOGGER.info("fileCopyByMapped time：" + stopwatch);
     }
 
     /**
@@ -122,10 +112,9 @@ public class FileReadMain {
      *
      * @throws IOException IO异常
      */
-    private static void fileCopyByTransTo() throws IOException {
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        File file = new File("F:/test.txt");
-        File copy = new File("F:/copy4.txt");
+    public static void fileCopyByTransferTo(String fromPath, String toPath) throws IOException {
+        File file = new File(fromPath);
+        File copy = new File(toPath);
         try (FileInputStream in = new FileInputStream(file);
              FileChannel channel = in.getChannel();
              FileOutputStream out = new FileOutputStream(copy);
@@ -133,30 +122,16 @@ public class FileReadMain {
 
             channel.transferTo(0, channel.size(), copyChannel);
         }
-        stopwatch.stop();
-        LOGGER.info("fileCopyByTransTo time：" + stopwatch);
     }
 
     /**
      * @throws IOException IO异常
      */
-    private static void fileCopyByFiles() throws IOException {
-        Stopwatch stopwatch = Stopwatch.createStarted();
-        File file = new File("F:/copy5.txt");
+    public static void fileCopyByFiles(String fromPath, String toPath) throws IOException {
+        File file = new File(toPath);
         if (file.exists()) {
             Files.delete(file.toPath());
         }
-        Files.copy(Paths.get("F:/test.txt"), Paths.get("F:/copy5.txt"));
-        stopwatch.stop();
-        LOGGER.info("fileCopyByFiles time：" + stopwatch);
-    }
-
-    public static void main(String[] args) throws IOException {
-        fileCopyByInputStream();
-        fileCopyByBufferedStream();
-        fileCopyByChannel();
-        fileCopyByMapped();
-        fileCopyByTransTo();
-        fileCopyByFiles();
+        Files.copy(Paths.get(fromPath), Paths.get(toPath));
     }
 }
