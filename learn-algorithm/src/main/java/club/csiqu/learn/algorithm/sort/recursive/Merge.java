@@ -1,4 +1,6 @@
-package club.csiqu.learn.algorithm.sort;
+package club.csiqu.learn.algorithm.sort.recursive;
+
+import club.csiqu.learn.algorithm.sort.Sortable;
 
 /**
  * 归并排序
@@ -12,6 +14,11 @@ package club.csiqu.learn.algorithm.sort;
  */
 public class Merge implements Sortable {
 
+    @Override
+    public void sort(int[] array) {
+        merge(array);
+    }
+
     /**
      * 使用数组下标来区分子序列，减少使用额外的内存空间。
      *
@@ -23,7 +30,7 @@ public class Merge implements Sortable {
     }
 
     private void merge(int[] array, int left, int right, int[] temp) {
-        // 当数组长度为 1 是结束递归
+        // 当数组长度为 1时结束递归
         if (left < right) {
             int mid = (left + right) >> 1;
             // 左序列递归
@@ -75,8 +82,4 @@ public class Merge implements Sortable {
         }
     }
 
-    @Override
-    public void sort(int[] array) {
-        merge(array);
-    }
 }

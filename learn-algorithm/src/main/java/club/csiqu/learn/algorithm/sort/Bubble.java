@@ -12,19 +12,21 @@ package club.csiqu.learn.algorithm.sort;
  */
 public class Bubble implements Sortable {
 
+    @Override
+    public void sort(int[] array) {
+        bubble2(array);
+    }
+
     /**
      * 基础冒泡排序，两次循环遍历。
      *
      * @param array 待排序数组
      */
     public void bubble0(int[] array) {
-        int temp;
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j + 1]) {
-                    temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+                    ArrayUtils.swap(array, j, j + 1);
                 }
             }
         }
@@ -36,17 +38,14 @@ public class Bubble implements Sortable {
      * @param array 待排序数组
      */
     public void bubble1(int[] array) {
-        int temp;
-        boolean flag = true;
+        boolean swapFlag = true;
         int length = array.length - 1;
-        while (flag) {
-            flag = false;
+        while (swapFlag) {
+            swapFlag = false;
             for (int j = 0; j < length; j++) {
                 if (array[j] > array[j + 1]) {
-                    temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                    flag = true;
+                    ArrayUtils.swap(array, j, j + 1);
+                    swapFlag = true;
                 }
             }
             length--;
@@ -59,25 +58,18 @@ public class Bubble implements Sortable {
      * @param array 待排序数组
      */
     public void bubble2(int[] array) {
-        int temp;
         int length;
-        int flag = array.length - 1;
-        while (flag > 0) {
-            length = flag;
-            flag = 0;
+        // 记录最后交换位置
+        int lastSwapIndex = array.length - 1;
+        while (lastSwapIndex > 0) {
+            length = lastSwapIndex;
+            lastSwapIndex = 0;
             for (int j = 0; j < length; j++) {
                 if (array[j] > array[j + 1]) {
-                    temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
-                    flag = j;
+                    ArrayUtils.swap(array, j, j + 1);
+                    lastSwapIndex = j;
                 }
             }
         }
-    }
-
-    @Override
-    public void sort(int[] array) {
-        bubble2(array);
     }
 }

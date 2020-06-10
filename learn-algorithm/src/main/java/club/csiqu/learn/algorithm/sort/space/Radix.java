@@ -1,6 +1,9 @@
-package club.csiqu.learn.algorithm.sort;
+package club.csiqu.learn.algorithm.sort.space;
+
+import club.csiqu.learn.algorithm.sort.Sortable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 基数排序
@@ -8,8 +11,8 @@ import java.util.ArrayList;
  * 非比较的排序算法，对每一位进行排序，从最低位开始排序，复杂度为 O(kn)。
  * n为数组长度，k为数组中的数的最大的位数。
  * <p>
- * 基数排序是按照低位先排序，然后收集。
- * 再按照高位排序，然后再收集。
+ * 1.按照低位先排序，然后收集。
+ * 2.再按照高位排序，然后再收集。
  *
  * @author chensiqu
  * @since 2019/3/22 10:44
@@ -25,6 +28,7 @@ public class Radix implements Sortable {
         if (array == null || array.length < 2) {
             return;
         }
+
         int max = array[0];
         // 找出最大的数
         for (int i = 1; i < array.length; i++) {
@@ -37,12 +41,14 @@ public class Radix implements Sortable {
             max /= 10;
             maxDigit++;
         }
+
         // 十个桶
-        ArrayList<ArrayList<Integer>> lists = new ArrayList<>(10);
+        ArrayList<List<Integer>> lists = new ArrayList<>(10);
         for (int i = 0; i < 10; i++) {
-            lists.add(new ArrayList<>(10000));
+            lists.add(new ArrayList<>(100000));
         }
-        int mod = 10, div = 1;
+        int mod = 10;
+        int div = 1;
         int index;
         // 从个位开始
         for (int i = 0; i < maxDigit; i++, mod *= 10, div *= 10) {
@@ -54,7 +60,7 @@ public class Radix implements Sortable {
             }
             index = 0;
             // 依次放回目标数组
-            for (ArrayList<Integer> list : lists) {
+            for (List<Integer> list : lists) {
                 for (Integer i1 : list) {
                     array[index++] = i1;
                 }

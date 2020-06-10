@@ -13,6 +13,11 @@ package club.csiqu.learn.algorithm.sort;
  */
 public class Selection implements Sortable {
 
+    @Override
+    public void sort(int[] array) {
+        select(array);
+    }
+
     public void select(int[] array) {
         int min;
         int temp;
@@ -30,10 +35,5 @@ public class Selection implements Sortable {
                 array[i] = temp;
             }
         }
-    }
-
-    @Override
-    public void sort(int[] array) {
-        select(array);
     }
 }

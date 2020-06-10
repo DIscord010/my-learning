@@ -2,7 +2,10 @@ package club.csiqu.learn.algorithm.sort;
 
 import java.util.Random;
 
-class ArrayUtils {
+/**
+ * @author Siqu Chen
+ */
+public class ArrayUtils {
 
     private static final Random RANDOM = new Random();
 
@@ -15,7 +18,7 @@ class ArrayUtils {
      * @param scope  数据范围
      * @return 随机数数组
      */
-    static int[] getRand(int length, int scope) {
+    public static int[] getRand(int length, int scope) {
         int[] array = new int[length];
         for (int i = 0; i < array.length; i++) {
             array[i] = RANDOM.nextInt(scope);
@@ -30,7 +33,7 @@ class ArrayUtils {
      * @param i     数组下标
      * @param j     数组下标
      */
-    static void swap(int[] array, int i, int j) {
+    public static void swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;

@@ -14,13 +14,17 @@ package club.csiqu.learn.algorithm.sort;
  */
 public class Insertion implements Sortable {
 
+    @Override
+    public void sort(int[] array) {
+        insert1(array);
+    }
+
     /**
      * 每次多进行了一次交换
      *
      * @param array 待排序数组
      */
     public void insert0(int[] array) {
-
         int current;
         for (int i = 1; i < array.length; i++) {
             current = array[i];
@@ -51,10 +55,5 @@ public class Insertion implements Sortable {
             }
             array[j] = temp;
         }
-    }
-
-    @Override
-    public void sort(int[] array) {
-        insert1(array);
     }
 }
