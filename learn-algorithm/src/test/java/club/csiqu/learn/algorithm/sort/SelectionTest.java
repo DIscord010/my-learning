@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author Siqu Chen 2020/5/18
  * @since 1.0.0
  */
-class SelectionTest extends SortTest {
+class SelectionTest extends ArrayGenerator {
 
     Selection selection = new Selection();
 

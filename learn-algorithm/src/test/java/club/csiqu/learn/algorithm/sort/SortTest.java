@@ -7,7 +7,6 @@ import club.csiqu.learn.algorithm.sort.space.Bucket;
 import club.csiqu.learn.algorithm.sort.space.Counting;
 import club.csiqu.learn.algorithm.sort.space.Radix;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,17 +29,6 @@ import org.slf4j.LoggerFactory;
 public class SortTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SortTest.class);
-
-    protected int[] array0;
-
-    protected int[] array1;
-
-    @BeforeEach
-    void init() {
-        array0 = ArrayUtils.getRand(10, 100);
-        array1 = new int[array0.length];
-        System.arraycopy(array0, 0, array1, 0, array0.length);
-    }
 
     @Test
     void testSort() {

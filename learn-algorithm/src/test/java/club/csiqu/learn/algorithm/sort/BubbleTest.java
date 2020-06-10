@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author Siqu Chen 2020/4/29
  * @since 1.0.0
  */
-class BubbleTest extends SortTest {
+class BubbleTest extends ArrayGenerator {
 
     Bubble bubble = new Bubble();
 
