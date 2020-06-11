@@ -1,4 +1,4 @@
-package club.csiqu.learn.thread.deadlock;
+package club.csiqu.learn.concurrent.scene.deadlock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,18 +21,17 @@ public class Application {
 
     @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) {
-
         for (int i = 0; i < 10; i++) {
             EXECUTOR.execute(() -> {
                 while (true) {
-                    MathUtil.sum(1, 2);
-                    LOGGER.debug("顺利执行");
+                    int result = MathUtil.sum(1, 2);
+                    LOGGER.debug("顺利执行:{}", result);
                 }
             });
             EXECUTOR.execute(() -> {
                 while (true) {
-                    MathUtil.sum(2, 1);
-                    LOGGER.debug("顺利执行");
+                    int result = MathUtil.sum(2, 1);
+                    LOGGER.debug("顺利执行:{}", result);
                 }
             });
         }

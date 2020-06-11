@@ -1,4 +1,4 @@
-package club.csiqu.learn.thread.deadlock;
+package club.csiqu.learn.concurrent.scene.deadlock;
 
 /**
  * @author Siqu Chen 2020/6/10
