@@ -1,4 +1,4 @@
-package club.csiqu.learn.thread.create;
+package club.csiqu.learn.concurrent.thread;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

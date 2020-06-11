@@ -1,4 +1,4 @@
-package club.csiqu.learn.thread.create;
+package club.csiqu.learn.concurrent.thread;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
