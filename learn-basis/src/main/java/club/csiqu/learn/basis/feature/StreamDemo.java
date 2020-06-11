@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
- * java8新特性 stream()的简单使用
+ * Java8新特性 stream()的简单使用
  *
  * @author chensiqu
  * @since 2019/3/15 11:05
