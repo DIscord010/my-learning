@@ -20,8 +20,8 @@
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="club.csiqu.framework.dubbo.service.HelloService" ref="helloService"/>
+    <dubbo:service interface="club.csiqu.learn.framework.dubbo.service.HelloService" ref="helloService"/>
 
     <!-- 和本地 bean一样实现服务 -->
-    <bean id="helloService" class="club.csiqu.framework.dubbo.demo.service.impl.HelloServiceImpl"/>
+    <bean id="helloService" class="club.csiqu.learn.framework.dubbo.demo.service.impl.HelloServiceImpl"/>
 </beans>

@@ -1,4 +1,4 @@
-package club.csiqu.framework.dubbo.service;
+package club.csiqu.learn.framework.dubbo.service;
 
 /**
  * @author chensiqu 2020/1/8

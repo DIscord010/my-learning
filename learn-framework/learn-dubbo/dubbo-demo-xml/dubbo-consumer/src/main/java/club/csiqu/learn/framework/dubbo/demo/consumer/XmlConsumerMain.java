@@ -1,6 +1,6 @@
-package club.csiqu.framework.dubbo.demo.consumer;
+package club.csiqu.learn.framework.dubbo.demo.consumer;
 
-import club.csiqu.framework.dubbo.service.HelloService;
+import club.csiqu.learn.framework.dubbo.service.HelloService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**

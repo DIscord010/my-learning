@@ -1,4 +1,4 @@
-package club.csiqu.framework.dubbo.demo.provider;
+package club.csiqu.learn.framework.dubbo.demo.provider;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

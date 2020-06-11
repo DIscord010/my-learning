@@ -1,6 +1,6 @@
-package club.csiqu.framework.dubbo.demo.service.impl;
+package club.csiqu.learn.framework.dubbo.demo.service.impl;
 
-import club.csiqu.framework.dubbo.service.HelloService;
+import club.csiqu.learn.framework.dubbo.service.HelloService;
 
 /**
  * @author chensiqu 2020/1/8
