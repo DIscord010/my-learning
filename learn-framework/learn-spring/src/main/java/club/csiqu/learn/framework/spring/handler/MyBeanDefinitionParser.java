@@ -2,6 +2,7 @@ package club.csiqu.learn.framework.spring.handler;
 
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
+import org.springframework.lang.Nullable;
 import org.w3c.dom.Element;
 
 /**
@@ -11,7 +12,7 @@ import org.w3c.dom.Element;
 public class MyBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 
     @Override
-    protected Class<User> getBeanClass(Element element) {
+    protected Class<User> getBeanClass(@Nullable Element element) {
         return User.class;
     }
 
