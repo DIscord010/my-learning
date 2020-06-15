@@ -8,14 +8,14 @@
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <bean id="sayHelloService"
-          class="club.csiqu.learn.framework.spring.demo.aop.parameter.service.impl.HelloServiceImpl"/>
+          class="club.csiqu.learn.framework.spring.aop.parameter.service.impl.HelloServiceImpl"/>
     <bean id="parameterAspect"
-          class="club.csiqu.learn.framework.spring.demo.aop.parameter.aspect.ParameterAspect"/>
+          class="club.csiqu.learn.framework.spring.aop.parameter.aspect.ParameterAspect"/>
 
     <aop:config>
         <aop:aspect ref="parameterAspect" order="1">
             <aop:around method="execute"
-                        pointcut="@annotation(club.csiqu.learn.framework.spring.demo.aop.parameter.annotation.ServiceParameter)"/>
+                        pointcut="@annotation(club.csiqu.learn.framework.spring.aop.parameter.annotation.ServiceParameter)"/>
         </aop:aspect>
     </aop:config>
 

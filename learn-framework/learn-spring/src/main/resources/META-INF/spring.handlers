@@ -1,1 +1,1 @@
-http\://www.csiqu.club/schema/my=club.csiqu.learn.framework.spring.handler.MyNamespaceHandler
+http\://www.csiqu.club/schema/my=club.csiqu.learn.framework.spring.ioc.handler.MyNamespaceHandler
