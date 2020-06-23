@@ -4,10 +4,10 @@ package club.csiqu.learn.basis.spi;
  * @author chensiqu
  * @since 2019/6/28 13:18
  */
-public class OptimusPrime implements Robot{
+public class OptimusPrime implements Robot {
 
     @Override
-    public void sayHello() {
-        System.out.println("Hello, I am Optimus Prime.");
+    public String sayHello() {
+        return "Hello, I am Optimus Prime.";
     }
 }

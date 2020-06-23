@@ -7,7 +7,7 @@ package club.csiqu.learn.basis.spi;
 public class Bumblebee implements Robot{
 
     @Override
-    public void sayHello() {
-        System.out.println("Hello, I am BUmblebee.");
+    public String sayHello() {
+        return "Hello, I am Bumblebee.";
     }
 }
