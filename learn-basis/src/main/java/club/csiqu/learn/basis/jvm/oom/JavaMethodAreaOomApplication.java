@@ -1,6 +1,6 @@
-package club.csiqu.learn.basis.jvm.oom.demo;
+package club.csiqu.learn.basis.jvm.oom;
 
-import club.csiqu.learn.basis.jvm.oom.OomObject;
+import club.csiqu.learn.basis.jvm.oom.model.Person;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 
@@ -16,17 +16,17 @@ import net.sf.cglib.proxy.MethodInterceptor;
  * @author chensiqu
  * @since 2019/7/1 22:57
  */
-public class JavaMethodAreaOom {
+public class JavaMethodAreaOomApplication {
 
     public static void main(String[] args) {
         while (true) {
             Enhancer enhancer = new Enhancer();
-            enhancer.setSuperclass(OomObject.class);
+            enhancer.setSuperclass(Person.class);
             enhancer.setUseCache(false);
             enhancer.setCallback((MethodInterceptor)(obj, arg1, args1, proxy)
                     -> proxy.invokeSuper(obj, args1));
-            OomObject oom = (OomObject)enhancer.create();
-            oom.getOom();
+            Person oom = (Person)enhancer.create();
+            oom.getName();
         }
     }
 }

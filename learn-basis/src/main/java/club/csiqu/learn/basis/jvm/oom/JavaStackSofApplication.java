@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.oom.demo;
+package club.csiqu.learn.basis.jvm.oom;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,14 +6,14 @@ import org.slf4j.LoggerFactory;
 /**
  * 栈溢出异常验证
  * <p>
- * VM Args:-Xss128k
+ * VM Args:-Xss128K
  *
  * @author chensiqu
  * @since 2019/7/1 22:50
  */
-public class JavaStackSof {
+public class JavaStackSofApplication {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(JavaStackSof.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JavaStackSofApplication.class);
 
     private int stackLength = 1;
 
@@ -23,7 +23,7 @@ public class JavaStackSof {
     }
 
     public static void main(String[] args) {
-        JavaStackSof oom = new JavaStackSof();
+        JavaStackSofApplication oom = new JavaStackSofApplication();
         try {
             oom.stackLeak();
         } catch (Throwable e) {

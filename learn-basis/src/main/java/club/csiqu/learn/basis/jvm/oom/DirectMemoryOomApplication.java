@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.oom.demo;
+package club.csiqu.learn.basis.jvm.oom;
 
 import java.nio.ByteBuffer;
 
@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/1 8:32
  */
-public class DirectMemoryOom {
+public class DirectMemoryOomApplication {
 
     private static final int MEMORY_SIZE_1_MB = 1024 * 1024;
 

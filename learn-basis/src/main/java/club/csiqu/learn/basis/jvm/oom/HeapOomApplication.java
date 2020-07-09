@@ -1,6 +1,6 @@
-package club.csiqu.learn.basis.jvm.oom.demo;
+package club.csiqu.learn.basis.jvm.oom;
 
-import club.csiqu.learn.basis.jvm.oom.OomObject;
+import club.csiqu.learn.basis.jvm.oom.model.Person;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +13,12 @@ import java.util.List;
  * @author chensiqu
  * @since 2019/7/1 22:39
  */
-public class HeapOom {
+public class HeapOomApplication {
 
     public static void main(String[] args) {
-        List<OomObject> list = new ArrayList<>();
+        List<Person> list = new ArrayList<>();
         while (true) {
-            list.add(new OomObject("Out of memory"));
+            list.add(new Person("memory"));
         }
     }
 }
