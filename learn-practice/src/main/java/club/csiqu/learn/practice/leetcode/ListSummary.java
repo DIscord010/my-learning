@@ -1,6 +1,8 @@
 package club.csiqu.learn.practice.leetcode;
 
 /**
+ * 列表相关.
+ *
  * @author Siqu Chen 2020/6/1
  * @since 1.0.0
  */
