@@ -8,9 +8,14 @@
        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
     <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
-    <dubbo:application name="consumer-of-helloworld-app"/>
+    <dubbo:application name="consumer-of-hello-world-app"/>
 
     <!-- 生成远程服务代理，可以和本地 bean一样使用 helloService -->
-    <dubbo:reference id="helloService" interface="club.csiqu.framework.dubbo.demo.api.HelloService"
-                     url="dubbo://127.0.0.1:20880"/>
+    <dubbo:reference id="helloService"
+                     interface="club.csiqu.learn.framework.dubbo.service.HelloService"
+                     url="dubbo://127.0.0.1:20880"
+                     group="demo"
+                     retries="1">
+        <dubbo:parameter key="hide" value="1" hide="true"/>
+    </dubbo:reference>
 </beans>

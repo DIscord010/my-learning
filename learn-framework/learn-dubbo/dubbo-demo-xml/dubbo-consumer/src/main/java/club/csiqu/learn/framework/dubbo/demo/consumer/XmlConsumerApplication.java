@@ -1,13 +1,14 @@
 package club.csiqu.learn.framework.dubbo.demo.consumer;
 
 import club.csiqu.learn.framework.dubbo.service.HelloService;
+import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author chensiqu 2020/1/8
  * @since 1.0.0
  */
-public class XmlConsumerMain {
+public class XmlConsumerApplication {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext
@@ -16,6 +17,7 @@ public class XmlConsumerMain {
         // 获取远程服务代理
         HelloService demoService = (HelloService)context.getBean("helloService");
         // 执行远程方法
+        RpcContext.getContext().setAttachment("param", "test");
         String hello = demoService.sayHello("world");
         // 显示调用结果
         System.out.println(hello);

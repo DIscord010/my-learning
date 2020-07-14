@@ -8,7 +8,7 @@ import java.io.IOException;
  * @author chensiqu 2020/1/8
  * @since 1.0.0
  */
-public class XmlProviderMain {
+public class XmlProviderApplication {
 
     public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext
