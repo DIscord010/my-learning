@@ -37,14 +37,14 @@ class JdbcTemplateTest {
         Stopwatch stopwatch = Stopwatch.createStarted();
         try (Connection connection = jdbcTemplate.createConnect()) {
             stopwatch.stop();
-            LOGGER.info("Create connection cost:{}", stopwatch);
+            LOGGER.info("Create connection costs:{}", stopwatch);
             stopwatch.reset();
             stopwatch.start();
 
             try (PreparedStatement statement = connection.prepareStatement(sql);
                  ResultSet resultSet = statement.executeQuery()) {
                 stopwatch.stop();
-                LOGGER.info("Exec SQL Costs: {} ms", stopwatch);
+                LOGGER.info("Exec SQL costs:{}", stopwatch);
                 resultSet.next();
                 Assertions.assertEquals("123456", resultSet.getString(2));
             }
