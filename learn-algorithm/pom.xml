@@ -11,5 +11,10 @@
 
     <artifactId>learn-algorithm</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>club.csiqu.learn</groupId>
+            <artifactId>learn-config</artifactId>
+        </dependency>
+    </dependencies>
 </project>

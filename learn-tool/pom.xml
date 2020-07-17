@@ -18,4 +18,11 @@
         <module>tool-kafka-client</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>club.csiqu.learn</groupId>
+            <artifactId>learn-config</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

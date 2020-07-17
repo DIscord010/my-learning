@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -34,7 +36,7 @@ class SyncLazySingletonTest {
     void testGetInstance() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         CountDownLatch endLatch = new CountDownLatch(100);
-        HashSet<SyncLazySingleton> hashSet = new HashSet<>(8);
+        Set<SyncLazySingleton> hashSet = Collections.synchronizedSet(new HashSet<>(8));
         for (int i = 0; i < 100; i++) {
             executor.execute(() -> {
                 try {

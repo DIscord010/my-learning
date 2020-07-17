@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>club.csiqu.learn</groupId>
+            <artifactId>learn-config</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
         </dependency>

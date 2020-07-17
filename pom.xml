@@ -32,11 +32,11 @@
         <module>learn-concurrent</module>
         <module>learn-config</module>
         <module>learn-algorithm</module>
+        <module>learn-seckill</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>club.csiqu.learn</groupId>
                 <artifactId>learn-config</artifactId>
@@ -211,12 +211,6 @@
     </dependencyManagement>
 
     <dependencies>
-
-        <dependency>
-            <groupId>club.csiqu.learn</groupId>
-            <artifactId>learn-config</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
