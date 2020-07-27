@@ -13,24 +13,34 @@ import java.util.concurrent.Executors;
  * @author chensiqu
  * @since 2019/4/8 17:15
  */
-public class Application {
+public class DeadLockApplication {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DeadLockApplication.class);
 
     static final Executor EXECUTOR = Executors.newFixedThreadPool(20);
 
-    @SuppressWarnings("InfiniteLoopStatement")
+    /**
+     * 这个方法会导致死锁，{@link Integer}对象默认在 [-128, 127]间进行缓存。
+     */
+    public static int sum(int a, int b) {
+        synchronized (Integer.valueOf(a)) {
+            synchronized (Integer.valueOf(b)) {
+                return a + b;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             EXECUTOR.execute(() -> {
                 while (true) {
-                    int result = MathUtil.sum(1, 2);
+                    int result = sum(1, 2);
                     LOGGER.debug("顺利执行:{}", result);
                 }
             });
             EXECUTOR.execute(() -> {
                 while (true) {
-                    int result = MathUtil.sum(2, 1);
+                    int result = sum(2, 1);
                     LOGGER.debug("顺利执行:{}", result);
                 }
             });
