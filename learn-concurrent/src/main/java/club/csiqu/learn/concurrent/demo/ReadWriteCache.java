@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent;
+package club.csiqu.learn.concurrent.demo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +13,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * @see ReadWriteLock
  * @since 2019/6/21 15:22
  */
-public class ReadWriteCacheSingleton<K, V> {
-
+public class ReadWriteCache<K, V> {
 
     /** 缓存数据存放 */
     private final Map<K, V> cache = new HashMap<>();
@@ -28,13 +27,10 @@ public class ReadWriteCacheSingleton<K, V> {
     /** 写锁 */
     private final Lock writeLock = lock.writeLock();
 
-
     /**
      * 私有构造方法
      */
-    private ReadWriteCacheSingleton() {
-
-    }
+    private ReadWriteCache() {}
 
     /**
      * 读取缓存数据
@@ -56,7 +52,7 @@ public class ReadWriteCacheSingleton<K, V> {
         }
         writeLock.lock();
         try {
-
+            // 这里需要依照业务逻辑更改
             v = cache.computeIfAbsent(k, k1 -> (V) k1);
         } finally {
             writeLock.unlock();
@@ -70,7 +66,7 @@ public class ReadWriteCacheSingleton<K, V> {
      * @param k 键
      * @param v 值
      */
-    private void put(K k, V v) {
+    public void put(K k, V v) {
         writeLock.lock();
         try {
             cache.put(k, v);
@@ -80,32 +76,19 @@ public class ReadWriteCacheSingleton<K, V> {
     }
 
     /**
-     * 内部静态类实现懒加载单例，线程安全。
-     */
-    private static class SingletonHolder {
-
-        private static ReadWriteCacheSingleton<String, String> instance = new ReadWriteCacheSingleton<>();
-    }
-
-    /**
      * 获取单例实例
      *
      * @return {@code instance}
      */
-    public static ReadWriteCacheSingleton<String, String> getInstance() {
-        return SingletonHolder.instance;
+    public static ReadWriteCache<String, String> getInstance() {
+        return SingletonHolder.INSTANCE;
     }
 
+    /**
+     * 内部静态类实现懒加载单例，线程安全。
+     */
+    private static class SingletonHolder {
 
-    public static void main(String[] args) {
-
-        ReadWriteCacheSingleton<String, String> cache = ReadWriteCacheSingleton.getInstance();
-        cache.put("123", "123124");
-        cache.put("1234", "1223124");
-        System.out.println(cache.get("123"));
-        System.out.println(cache.get("12323"));
-
-        ReadWriteCacheSingleton<String, String> cache1 = ReadWriteCacheSingleton.getInstance();
-        System.out.println(cache1.get("123"));
+        private static final ReadWriteCache<String, String> INSTANCE = new ReadWriteCache<>();
     }
 }
