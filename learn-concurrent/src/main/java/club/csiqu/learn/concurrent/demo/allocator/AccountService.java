@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.allocator;
+package club.csiqu.learn.concurrent.demo.allocator;
 
 /**
  * 账户操作
@@ -9,7 +9,7 @@ package club.csiqu.learn.concurrent.allocator;
 class AccountService {
 
     /** 锁唯一实例 */
-    private static SingleAllocator singleAllocator = SingleAllocator.getInstance();
+    private final AccountAllocator singleAllocator = AccountAllocator.getInstance();
 
     /**
      * 转账
@@ -20,7 +20,7 @@ class AccountService {
      * @param target  目标账户
      * @param account 金额
      */
-    void transferByAllocator(Account src, Account target, int account) {
+    void transferByAllocator(Account src, Account target, int account) throws InterruptedException {
         // 获取两个账户资源
         singleAllocator.apply(src, target);
         src.setBalance(src.getBalance() - account);
@@ -42,7 +42,6 @@ class AccountService {
         src.setBalance(src.getBalance() - account);
         target.setBalance(target.getBalance() + account);
     }
-
 
     /**
      * 转账
