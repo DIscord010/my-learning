@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
  * 亿个 0-100000范围数据，n*log(n)算法达到十秒级。其中数据越多，快排表现越好。
  *
  * @author Siqu Chen 2020/6/10
- * @since 1.0.0
+ * @since 1.0
  */
 public class SortTest {
 

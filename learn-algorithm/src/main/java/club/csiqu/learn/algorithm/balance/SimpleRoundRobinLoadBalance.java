@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * 简单的轮训负载均衡算法.
  *
  * @author Siqu Chen 2020/5/22
- * @since 1.0.0
+ * @since 1.0
  */
 public class SimpleRoundRobinLoadBalance extends AbstractLoadBalance {
 

@@ -12,7 +12,7 @@ import io.netty.handler.codec.string.StringEncoder;
 
 /**
  * @author chensiqu 2020/1/2
- * @since 1.0.0
+ * @since 1.0
  */
 public class NettyEchoServer {
 

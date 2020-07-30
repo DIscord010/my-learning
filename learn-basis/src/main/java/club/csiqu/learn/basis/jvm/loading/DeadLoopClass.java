@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  * 线程会执行类初始化方法.
  *
  * @author Siqu Chen 2020/5/28
- * @since 1.0.0
+ * @since 1.0
  */
 public class DeadLoopClass {
 

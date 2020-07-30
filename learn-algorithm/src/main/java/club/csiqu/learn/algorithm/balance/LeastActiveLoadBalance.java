@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * 简单实现最小活跃数负载均衡，存在唯一最小活跃数 {@code invoker}则为目标，不唯一则直接使用随机算法。
  *
  * @author Siqu Chen 2020/4/19
- * @since 1.0.0
+ * @since 1.0
  */
 public class LeastActiveLoadBalance extends AbstractLoadBalance {
 

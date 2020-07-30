@@ -10,7 +10,7 @@ import club.csiqu.learn.pattern.singleton.Constants;
  * 缺点：获取单例的方法加锁，开销大，在并发环境下获取单例对象的效率低。
  *
  * @author Siqu Chen 2020/5/17
- * @since 1.0.0
+ * @since 1.0
  */
 public class SyncLazySingleton {
 

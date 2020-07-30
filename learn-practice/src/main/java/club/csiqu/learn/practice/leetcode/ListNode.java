@@ -2,7 +2,7 @@ package club.csiqu.learn.practice.leetcode;
 
 /**
  * @author Siqu Chen 2020/6/1
- * @since 1.0.0
+ * @since 1.0
  */
 public class ListNode {
 

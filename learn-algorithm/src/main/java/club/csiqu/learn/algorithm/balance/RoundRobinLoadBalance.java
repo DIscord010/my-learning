@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * 例如 [A, B, C]权重为 [8, 1, 1]，则十次调用，次数比为 [8: 1: 1].
  *
  * @author Siqu Chen 2020/5/22
- * @since 1.0.0
+ * @since 1.0
  */
 public class RoundRobinLoadBalance extends AbstractLoadBalance {
 

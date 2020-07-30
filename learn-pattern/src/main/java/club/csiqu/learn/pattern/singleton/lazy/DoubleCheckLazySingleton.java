@@ -9,7 +9,7 @@ import club.csiqu.learn.pattern.singleton.Constants;
  * 缺点：代码不够清晰优雅
  *
  * @author Siqu Chen 2020/5/17
- * @since 1.0.0
+ * @since 1.0
  */
 public class DoubleCheckLazySingleton {
 

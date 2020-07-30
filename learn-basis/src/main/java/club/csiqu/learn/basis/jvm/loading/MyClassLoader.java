@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 /**
  * @author Siqu Chen 2020/5/27
- * @since 1.0.0
+ * @since 1.0
  */
 public class MyClassLoader extends ClassLoader {
 

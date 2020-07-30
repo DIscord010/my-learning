@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 /**
  * @author Siqu Chen 2020/6/24
- * @since 1.0.0
+ * @since 1.0
  */
 public class JdbcTemplate {
 

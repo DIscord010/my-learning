@@ -10,7 +10,7 @@ import java.net.Socket;
 
 /**
  * @author Siqu Chen 2020/5/7
- * @since 1.0.0
+ * @since 1.0
  */
 public class SocketHandler implements Runnable {
 

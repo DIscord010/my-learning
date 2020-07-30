@@ -2,7 +2,7 @@ package club.csiqu.learn.framework.spring.ioc.handler;
 
 /**
  * @author Siqu Chen 2020/2/19
- * @since 1.0.0
+ * @since 1.0
  */
 public class User {
 

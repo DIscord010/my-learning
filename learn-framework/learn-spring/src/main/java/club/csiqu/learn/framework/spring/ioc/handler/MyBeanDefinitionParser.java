@@ -7,7 +7,7 @@ import org.w3c.dom.Element;
 
 /**
  * @author Siqu Chen 2020/2/19
- * @since 1.0.0
+ * @since 1.0
  */
 public class MyBeanDefinitionParser extends AbstractSingleBeanDefinitionParser {
 

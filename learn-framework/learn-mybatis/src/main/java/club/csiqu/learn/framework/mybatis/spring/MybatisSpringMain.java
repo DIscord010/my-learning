@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Spring整合Mybatis bean注册流程梳理
  *
  * @author Siqu Chen 2020/2/18
- * @since 1.0.0
+ * @since 1.0
  */
 public class MybatisSpringMain {
 

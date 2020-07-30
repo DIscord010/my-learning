@@ -10,7 +10,7 @@ import club.csiqu.learn.pattern.singleton.Constants;
  * 缺点：类初始化就加载
  *
  * @author Siqu Chen 2020/5/14
- * @since 1.0.0
+ * @since 1.0
  */
 public class SimpleHungrySingleton {
 

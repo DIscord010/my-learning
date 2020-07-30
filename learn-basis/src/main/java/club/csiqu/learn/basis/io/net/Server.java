@@ -4,7 +4,7 @@ package club.csiqu.learn.basis.io.net;
  * 服务端接口
  *
  * @author Siqu Chen 2020/5/7
- * @since 1.0.0
+ * @since 1.0
  */
 public interface Server {
 

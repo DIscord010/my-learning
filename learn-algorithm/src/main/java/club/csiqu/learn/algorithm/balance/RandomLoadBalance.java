@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * 按权重随机的负载均衡算法。
  *
  * @author Siqu Chen 2020/4/6
- * @since 1.0.0
+ * @since 1.0
  */
 public class RandomLoadBalance extends AbstractLoadBalance {
 

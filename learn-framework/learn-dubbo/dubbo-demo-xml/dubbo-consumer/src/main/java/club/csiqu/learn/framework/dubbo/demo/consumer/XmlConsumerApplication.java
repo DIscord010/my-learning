@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author chensiqu 2020/1/8
- * @since 1.0.0
+ * @since 1.0
  */
 public class XmlConsumerApplication {
 

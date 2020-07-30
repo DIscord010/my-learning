@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 /**
  * @author Siqu Chen 2020/6/10
- * @since 1.0.0
+ * @since 1.0
  */
 class QuickTest extends ArrayGenerator {
 

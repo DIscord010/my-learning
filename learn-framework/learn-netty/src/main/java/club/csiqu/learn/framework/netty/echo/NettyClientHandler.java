@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author chensiqu 2020/1/3
- * @since 1.0.0
+ * @since 1.0
  */
 public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 

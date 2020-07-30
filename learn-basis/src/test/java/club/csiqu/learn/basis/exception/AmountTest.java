@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Siqu Chen 2020/2/26
- * @since 1.0.0
+ * @since 1.0
  */
 public class AmountTest {
 

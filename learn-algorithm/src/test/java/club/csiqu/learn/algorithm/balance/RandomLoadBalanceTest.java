@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author Siqu Chen 2020/4/6
- * @since 1.0.0
+ * @since 1.0
  */
 class RandomLoadBalanceTest {
 

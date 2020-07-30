@@ -4,7 +4,7 @@ package club.csiqu.learn.practice.leetcode;
  * 整数相关.
  *
  * @author Siqu Chen 2020/3/13
- * @since 1.0.0
+ * @since 1.0
  */
 @SuppressWarnings("unused")
 public class IntegerSummary {

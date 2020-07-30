@@ -2,7 +2,7 @@ package club.csiqu.learn.basis.exception.closeable;
 
 /**
  * @author Siqu Chen 2020/6/3
- * @since 1.0.0
+ * @since 1.0
  */
 public class AutoCloseableImpl implements AutoCloseable {
 

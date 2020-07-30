@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
  * 验证 Java异常屏蔽现象
  *
  * @author Siqu Chen 2020/6/3
- * @since 1.0.0
+ * @since 1.0
  */
 class AutoCloseableImplTest {
 

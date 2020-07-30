@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * @author Siqu Chen 2020/4/14
- * @since 1.0.0
+ * @since 1.0
  */
 class RpcProxyTest {
 

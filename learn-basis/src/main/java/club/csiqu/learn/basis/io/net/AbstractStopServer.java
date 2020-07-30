@@ -2,7 +2,7 @@ package club.csiqu.learn.basis.io.net;
 
 /**
  * @author Siqu Chen 2020/5/7
- * @since 1.0.0
+ * @since 1.0
  */
 public abstract class AbstractStopServer implements Server {
 

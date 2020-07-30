@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Siqu Chen 2020/4/19
- * @since 1.0.0
+ * @since 1.0
  */
 class LeastActiveLoadBalanceTest {
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  * @author Siqu Chen 2020/5/18
- * @since 1.0.0
+ * @since 1.0
  */
 class SerializeDamageTest {
 

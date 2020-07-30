@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Siqu Chen 2020/5/25
- * @since 1.0.0
+ * @since 1.0
  */
 class ProducerTest {
 
