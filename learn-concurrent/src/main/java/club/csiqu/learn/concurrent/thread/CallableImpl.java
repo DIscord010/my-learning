@@ -7,7 +7,7 @@ import java.util.concurrent.Callable;
 
 /**
  * @author Siqu Chen 2020/6/10
- * @since 1.0.0
+ * @since 1.0
  */
 public class CallableImpl implements Callable<Integer> {
 

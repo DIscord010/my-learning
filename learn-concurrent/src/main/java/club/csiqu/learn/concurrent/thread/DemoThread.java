@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
  * 线程生命周期可以用五个状态表示：初始状态、可运行状态、运行状态、休眠状态和终止状态。
  *
  * @author Siqu Chen 2020/6/10
- * @since 1.0.0
+ * @since 1.0
  */
 public class DemoThread extends Thread {
 

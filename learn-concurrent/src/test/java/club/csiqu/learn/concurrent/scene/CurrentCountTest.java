@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Siqu Chen 2020/6/11
- * @since 1.0.0
+ * @since 1.0
  */
 class CurrentCountTest {
 

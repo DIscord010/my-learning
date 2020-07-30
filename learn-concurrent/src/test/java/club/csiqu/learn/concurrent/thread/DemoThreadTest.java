@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Siqu Chen 2020/6/10
- * @since 1.0.0
+ * @since 1.0
  */
 class DemoThreadTest {
 
