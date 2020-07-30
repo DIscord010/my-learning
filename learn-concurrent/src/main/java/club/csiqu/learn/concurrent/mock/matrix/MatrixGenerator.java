@@ -10,12 +10,15 @@ import java.util.Random;
  */
 public class MatrixGenerator {
 
+    private static final Random RANDOM = new Random();
+
+    private MatrixGenerator() {}
+
     public static double[][] generate(int rows, int columns) {
         double[][] result = new double[rows][columns];
-        Random random = new Random();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                result[i][j] = random.nextDouble() * 10;
+                result[i][j] = RANDOM.nextDouble() * 10;
             }
         }
         return result;
