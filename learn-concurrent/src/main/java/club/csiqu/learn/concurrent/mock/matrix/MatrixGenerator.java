@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.matrix;
+package club.csiqu.learn.concurrent.mock.matrix;
 
 import java.util.Random;
 
@@ -6,7 +6,7 @@ import java.util.Random;
  * 矩阵生成器
  *
  * @author chensiqu 2019/12/27
- * @since 1.0.0
+ * @since 1.0
  */
 public class MatrixGenerator {
 
