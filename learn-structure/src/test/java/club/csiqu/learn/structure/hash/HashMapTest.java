@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Siqu Chen 2020/3/26
- * @since 1.0.0
+ * @since 1.0
  */
 class HashMapTest {
 
