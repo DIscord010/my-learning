@@ -1,14 +1,26 @@
-package club.csiqu.learn.concurrent.lock;
+package club.csiqu.learn.concurrent.demo.lock;
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 /**
- * 基于 AQS简单实现自定义锁。不可重入，且未获得锁的没有阻塞，占用资源。
+ * 基于 {@link AbstractQueuedSynchronizer}简单实现自定义锁。不可重入。
  *
  * @author chensiqu 2019/12/19
- * @since 1.0.0
+ * @since 1.0
  */
-public class MyLock extends AbstractQueuedSynchronizer {
+public class MyLock extends AbstractQueuedSynchronizer implements Lock {
+
+    Sync sync = new Sync();
+
+    @Override
+    public void lock() {
+        sync.acquire(1);
+    }
+
+    @Override
+    public void unlock() {
+        sync.release(1);
+    }
 
     private static class Sync extends AbstractQueuedSynchronizer {
 
@@ -28,15 +40,4 @@ public class MyLock extends AbstractQueuedSynchronizer {
             return getState() == 1;
         }
     }
-
-    Sync sync = new Sync();
-
-    public void lock() {
-        sync.acquire(1);
-    }
-
-    public void unlock() {
-        sync.release(1);
-    }
-
 }
