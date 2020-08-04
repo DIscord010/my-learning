@@ -16,6 +16,7 @@
         <module>tool-apache</module>
         <module>tool-btrace</module>
         <module>tool-kafka-client</module>
+        <module>tool-curator</module>
     </modules>
 
     <dependencies>
