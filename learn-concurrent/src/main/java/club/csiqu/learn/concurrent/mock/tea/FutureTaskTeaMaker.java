@@ -1,10 +1,12 @@
-package club.csiqu.learn.concurrent.tea;
+package club.csiqu.learn.concurrent.mock.tea;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
@@ -14,11 +16,27 @@ import java.util.concurrent.TimeUnit;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/8/22 9:03
  */
-public class MakeTeaByFutureTask {
+public class FutureTaskTeaMaker implements TeaMaker {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MakeTeaByFutureTask.class);
+    Executor executor = Executors.newFixedThreadPool(10);
 
-    static class T1Task implements Callable<String> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FutureTaskTeaMaker.class);
+
+    @Override
+    public String makeTea() throws InterruptedException {
+        FutureTask<String> task2 = new FutureTask<>(new T2Task());
+        FutureTask<String> task1 = new FutureTask<>(new T1Task(task2));
+        executor.execute(task1);
+        executor.execute(task2);
+        try {
+            return task1.get();
+        } catch (ExecutionException e) {
+            LOGGER.warn("线程执行异常：", e);
+            return "泡茶失败";
+        }
+    }
+
+    private static class T1Task implements Callable<String> {
 
         FutureTask<String> t2FutureTask;
 
@@ -39,7 +57,7 @@ public class MakeTeaByFutureTask {
         }
     }
 
-    static class T2Task implements Callable<String> {
+    private static class T2Task implements Callable<String> {
 
         @Override
         public String call() throws InterruptedException {

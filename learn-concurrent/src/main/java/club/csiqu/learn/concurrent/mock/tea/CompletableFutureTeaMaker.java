@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.tea;
+package club.csiqu.learn.concurrent.mock.tea;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,11 +12,12 @@ import java.util.concurrent.TimeUnit;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/8/22 10:58
  */
-public class MakeTeaByCompletableFuture {
+public class CompletableFutureTeaMaker implements TeaMaker {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MakeTeaByCompletableFuture.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CompletableFutureTeaMaker.class);
 
-    public void makeTea() {
+    @Override
+    public String makeTea() {
         CompletableFuture<Void> f1 = CompletableFuture.runAsync(
                 () -> {
                     LOGGER.info("T1：洗水壶...");
@@ -41,14 +42,14 @@ public class MakeTeaByCompletableFuture {
             LOGGER.info("T1：泡茶...");
             return "上茶：" + teaLeaf;
         });
-        LOGGER.info(f3.join());
+        return f3.join();
     }
 
     private void sleep(int t) {
         try {
             TimeUnit.SECONDS.sleep(t);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
     }
 }
