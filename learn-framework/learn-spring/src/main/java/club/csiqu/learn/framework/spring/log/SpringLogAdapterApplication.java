@@ -1,5 +1,8 @@
 package club.csiqu.learn.framework.spring.log;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
@@ -15,21 +18,23 @@ import java.util.Arrays;
  * @author chensiqu
  * @since 2019/3/29 15:58
  */
-public class JclMain {
+public class SpringLogAdapterApplication {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpringLogAdapterApplication.class);
 
     public static void main(String[] args) {
         try {
             // 通过反射加载 org.apache.commons.logging.LogAdapter类
-            Class logAdapter = Class.forName("org.apache.commons.logging.LogAdapter");
-            System.out.println(Arrays.toString(logAdapter.getDeclaredFields()));
+            Class<?> logAdapter = Class.forName("org.apache.commons.logging.LogAdapter");
+            String fields = Arrays.toString(logAdapter.getDeclaredFields());
+            LOGGER.info("{}", fields);
             // 获取私有属性 logApi的值
             Field field = logAdapter.getDeclaredField("logApi");
             field.setAccessible(true);
             // 此处在没有导入 slf4j和 log4j2日志包的情况下为 JUL
-            System.out.println(field.get(logAdapter));
-
+            LOGGER.info("{}", field.get(logAdapter));
         } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
+            LOGGER.warn("获取Spring LogAdapter失败：{}，可能为未引入JAR.", e.getMessage());
         }
     }
 }
