@@ -1,6 +1,6 @@
-package club.csiqu.learn.framework.spring.ioc.demo.service.impl;
+package club.csiqu.learn.framework.spring.ioc.example.service.impl;
 
-import club.csiqu.learn.framework.spring.ioc.demo.service.HelloWorld;
+import club.csiqu.learn.framework.spring.ioc.example.service.HelloWorld;
 import org.springframework.stereotype.Component;
 
 /**

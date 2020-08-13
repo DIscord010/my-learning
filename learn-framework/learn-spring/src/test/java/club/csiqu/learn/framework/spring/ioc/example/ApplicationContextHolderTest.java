@@ -1,7 +1,7 @@
-package club.csiqu.learn.framework.spring.ioc.demo;
+package club.csiqu.learn.framework.spring.ioc.example;
 
-import club.csiqu.learn.framework.spring.ioc.demo.service.HelloWorld;
-import club.csiqu.learn.framework.spring.ioc.demo.service.HelloWorldService;
+import club.csiqu.learn.framework.spring.ioc.example.service.HelloWorld;
+import club.csiqu.learn.framework.spring.ioc.example.service.HelloWorldService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

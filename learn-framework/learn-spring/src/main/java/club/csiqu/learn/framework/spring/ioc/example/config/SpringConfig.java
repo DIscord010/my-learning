@@ -1,8 +1,8 @@
-package club.csiqu.learn.framework.spring.ioc.demo.config;
+package club.csiqu.learn.framework.spring.ioc.example.config;
 
-import club.csiqu.learn.framework.spring.ioc.demo.service.HelloWorldService;
-import club.csiqu.learn.framework.spring.ioc.demo.service.HelloWorld;
-import club.csiqu.learn.framework.spring.ioc.demo.service.impl.AutumnHelloWorldImpl;
+import club.csiqu.learn.framework.spring.ioc.example.service.HelloWorldService;
+import club.csiqu.learn.framework.spring.ioc.example.service.HelloWorld;
+import club.csiqu.learn.framework.spring.ioc.example.service.impl.AutumnHelloWorldImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

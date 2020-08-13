@@ -1,4 +1,4 @@
-package club.csiqu.learn.framework.spring.ioc.demo.service;
+package club.csiqu.learn.framework.spring.ioc.example.service;
 
 /**
  * @author chensiqu

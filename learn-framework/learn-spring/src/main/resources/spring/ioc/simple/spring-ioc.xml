@@ -6,10 +6,10 @@
 
 
     <bean id="springHelloWorld"
-          class="club.csiqu.learn.framework.spring.ioc.demo.service.impl.SpringHelloWorldImpl"/>
+          class="club.csiqu.learn.framework.spring.ioc.example.service.impl.SpringHelloWorldImpl"/>
 
     <bean id="helloWorldService"
-          class="club.csiqu.learn.framework.spring.ioc.demo.service.HelloWorldService">
+          class="club.csiqu.learn.framework.spring.ioc.example.service.HelloWorldService">
         <property name="helloWorld" ref="springHelloWorld"/>
     </bean>
 </beans>

@@ -1,6 +1,6 @@
-package club.csiqu.learn.framework.spring.ioc.demo;
+package club.csiqu.learn.framework.spring.ioc.example;
 
-import club.csiqu.learn.framework.spring.ioc.demo.config.SpringConfig;
+import club.csiqu.learn.framework.spring.ioc.example.config.SpringConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
