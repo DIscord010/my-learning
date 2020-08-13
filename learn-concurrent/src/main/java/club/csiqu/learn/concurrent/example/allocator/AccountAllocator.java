@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.demo.allocator;
+package club.csiqu.learn.concurrent.example.allocator;
 
 import java.util.ArrayList;
 import java.util.List;

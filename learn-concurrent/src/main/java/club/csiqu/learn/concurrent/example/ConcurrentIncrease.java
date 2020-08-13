@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.demo;
+package club.csiqu.learn.concurrent.example;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;

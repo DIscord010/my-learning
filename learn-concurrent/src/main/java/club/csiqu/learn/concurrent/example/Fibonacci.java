@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.demo;
+package club.csiqu.learn.concurrent.example;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;

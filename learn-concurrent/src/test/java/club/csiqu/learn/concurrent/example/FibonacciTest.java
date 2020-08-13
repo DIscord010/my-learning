@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.demo;
+package club.csiqu.learn.concurrent.example;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

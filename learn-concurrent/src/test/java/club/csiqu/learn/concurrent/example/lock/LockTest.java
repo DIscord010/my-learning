@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.demo.lock;
+package club.csiqu.learn.concurrent.example.lock;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

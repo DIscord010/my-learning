@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.demo.lock;
+package club.csiqu.learn.concurrent.example.lock;
 
 /**
  * @author Siqu Chen 2020/8/3

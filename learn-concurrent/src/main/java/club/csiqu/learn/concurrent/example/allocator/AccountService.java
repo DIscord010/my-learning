@@ -1,4 +1,4 @@
-package club.csiqu.learn.concurrent.demo.allocator;
+package club.csiqu.learn.concurrent.example.allocator;
 
 /**
  * 账户操作
