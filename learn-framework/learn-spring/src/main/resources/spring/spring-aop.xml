@@ -4,16 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-    <bean id="customerService" class="club.csiqu.learn.framework.spring.aop.CustomerService"
-          autowire="no">
+    <bean id="customer" class="club.csiqu.learn.framework.spring.aop.example.Customer" autowire="no">
         <property name="name" value="chen"/>
-        <property name="url" value="www.baidu.com"/>
     </bean>
+
     <bean id="helloBeforeMethod"
-          class="club.csiqu.learn.framework.spring.aop.HelloBeforeMethod"/>
-    <bean id="customerServiceProxy"
-          class="org.springframework.aop.framework.ProxyFactoryBean">
-        <property name="target" ref="customerService"/>
+          class="club.csiqu.learn.framework.spring.aop.example.HelloBeforeMethod"/>
+
+    <bean id="customerProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="customer"/>
         <property name="interceptorNames">
             <list>
                 <value>helloBeforeMethod</value>
