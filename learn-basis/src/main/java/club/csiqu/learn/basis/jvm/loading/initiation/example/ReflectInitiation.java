@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.loading.initiation.demo;
+package club.csiqu.learn.basis.jvm.loading.initiation.example;
 
 /**
  * 反射获取类对象会触发类的初始化

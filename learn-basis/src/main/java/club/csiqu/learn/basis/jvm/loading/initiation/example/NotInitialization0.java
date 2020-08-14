@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.loading.initiation.demo;
+package club.csiqu.learn.basis.jvm.loading.initiation.example;
 
 import club.csiqu.learn.basis.jvm.loading.initiation.SubClass;
 import org.slf4j.Logger;
