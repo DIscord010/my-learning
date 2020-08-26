@@ -38,8 +38,7 @@ public class Utils {
         extTypes.put("AO", 3);
         extTypes.put("TMO", 2);
         extTypes.put("Other", 1);
-        return extensions.stream().sorted(
-                (a, b) -> {
+        return extensions.stream().sorted((a, b) -> {
                     String extType1 = a.getExtType();
                     String extType2 = b.getExtType();
                     // big -> small
@@ -52,32 +51,36 @@ public class Utils {
      * Question3, sum all sales items by quarter
      **/
     public static List<QuarterSalesItem> sumByQuarter(List<SaleItem> saleItems) {
-        return saleItems.stream()
+        return saleItems
+                .stream()
                 .collect(Collectors.groupingBy(s -> (s.getMonth() - 1) / 3 + 1,
                         Collectors.summingDouble(SaleItem::getSaleNumbers)))
-                .entrySet().stream().map(
-                        e -> {
-                            QuarterSalesItem quarterSalesItem = new QuarterSalesItem();
-                            quarterSalesItem.setQuarter(e.getKey());
-                            quarterSalesItem.setValue(e.getValue());
-                            return quarterSalesItem;
-                        }).collect(Collectors.toList());
+                .entrySet()
+                .stream()
+                .map(e -> {
+                    QuarterSalesItem quarterSalesItem = new QuarterSalesItem();
+                    quarterSalesItem.setQuarter(e.getKey());
+                    quarterSalesItem.setValue(e.getValue());
+                    return quarterSalesItem;
+                }).collect(Collectors.toList());
     }
 
     /**
      * Question4, max all sales items by quarter
      **/
     public static List<QuarterSalesItem> maxByQuarter(List<SaleItem> saleItems) {
-        return saleItems.stream()
+        return saleItems
+                .stream()
                 .collect(Collectors.groupingBy(s -> (s.getMonth() - 1) / 3 + 1,
                         Collectors.maxBy(Comparator.comparing(SaleItem::getSaleNumbers))))
-                .entrySet().stream().map(
-                        e -> {
-                            QuarterSalesItem quarterSalesItem = new QuarterSalesItem();
-                            quarterSalesItem.setQuarter(e.getKey());
-                            quarterSalesItem.setValue(e.getValue().get().getSaleNumbers());
-                            return quarterSalesItem;
-                        }).collect(Collectors.toList());
+                .entrySet()
+                .stream()
+                .map(e -> {
+                    QuarterSalesItem quarterSalesItem = new QuarterSalesItem();
+                    quarterSalesItem.setQuarter(e.getKey());
+                    quarterSalesItem.setValue(e.getValue().get().getSaleNumbers());
+                    return quarterSalesItem;
+                }).collect(Collectors.toList());
     }
 
     /**
