@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
  * @author Siqu Chen 2020/5/12
  * @since 1.0
  */
-public class ExecutorFactory {
+public class Executors {
 
-    private ExecutorFactory() {}
+    private Executors() {}
 
     /**
      * 获取单一线程线程池

@@ -1,7 +1,7 @@
 package club.csiqu.learn.basis.net.greeting;
 
 import club.csiqu.learn.basis.net.AbstractStopServer;
-import club.csiqu.learn.basis.executor.ExecutorFactory;
+import club.csiqu.learn.basis.executor.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +28,7 @@ public class GreetingServerImpl extends AbstractStopServer {
     private final ServerSocket serverSocket;
 
     /** 单线程进行连接请求处理和客户端连接处理 */
-    private final Executor executor = ExecutorFactory.newSingleThreadExecutor("greeting-server-pool-%d");
+    private final Executor executor = Executors.newSingleThreadExecutor("greeting-server-pool-%d");
 
     public GreetingServerImpl(int port) throws IOException {
         serverSocket = new ServerSocket(port);

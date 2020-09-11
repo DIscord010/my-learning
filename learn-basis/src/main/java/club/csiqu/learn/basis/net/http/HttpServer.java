@@ -1,6 +1,6 @@
 package club.csiqu.learn.basis.net.http;
 
-import club.csiqu.learn.basis.executor.ExecutorFactory;
+import club.csiqu.learn.basis.executor.Executors;
 import club.csiqu.learn.basis.net.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +31,7 @@ public class HttpServer implements Server {
     private final ServerSocket serverSocket;
 
     /** 单线程进行连接请求处理和客户端连接处理 */
-    private final Executor executor = ExecutorFactory.newSingleThreadExecutor("http-server-pool-%d");
+    private final Executor executor = Executors.newSingleThreadExecutor("http-server-pool-%d");
 
     public HttpServer(int port) throws IOException {
         serverSocket = new ServerSocket(port);

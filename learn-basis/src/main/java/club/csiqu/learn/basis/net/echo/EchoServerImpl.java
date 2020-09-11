@@ -1,7 +1,7 @@
 package club.csiqu.learn.basis.net.echo;
 
 import club.csiqu.learn.basis.net.AbstractStopServer;
-import club.csiqu.learn.basis.executor.ExecutorFactory;
+import club.csiqu.learn.basis.executor.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +25,7 @@ public class EchoServerImpl extends AbstractStopServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(EchoServerImpl.class);
 
     /** 接收客户端连接请求线程 */
-    private final Executor executor = ExecutorFactory.newSingleThreadExecutor("echo-server-pool-%d");
+    private final Executor executor = Executors.newSingleThreadExecutor("echo-server-pool-%d");
 
     private final ServerSocket serverSocket;
 
