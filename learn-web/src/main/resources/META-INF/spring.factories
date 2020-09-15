@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+club.csiqu.learnweb.common.autowire.retrofit.RetrofitAutoConfiguration

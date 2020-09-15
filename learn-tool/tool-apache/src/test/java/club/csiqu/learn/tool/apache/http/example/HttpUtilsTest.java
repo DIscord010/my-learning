@@ -26,7 +26,7 @@ import java.util.List;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/25 14:31
  */
-public class HttpUtilsTest {
+class HttpUtilsTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpUtilsTest.class);
 
@@ -35,7 +35,7 @@ public class HttpUtilsTest {
     private static final String POST_URL = "http://tj.nineton.cn/Heart/index/all";
 
     @Test
-    public void testHttpUtils() {
+    void testHttpUtils() {
         NameValuePair pair = new BasicNameValuePair("city", "CHSH000000");
         List<NameValuePair> params = new ArrayList<>(1);
         params.add(pair);
@@ -45,7 +45,7 @@ public class HttpUtilsTest {
     }
 
     @Test
-    public void testTimeCost() throws IOException {
+    void testTimeCost() throws IOException {
         String result0 = null;
         long beforeTimeOffset0 = System.currentTimeMillis();
         for (int i = 0; i <= 20; i++) {
