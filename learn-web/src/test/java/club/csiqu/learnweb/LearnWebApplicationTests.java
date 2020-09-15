@@ -1,10 +1,10 @@
-package club.csiqu.learnseckill;
+package club.csiqu.learnweb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LearnSeckillApplicationTests {
+public class LearnWebApplicationTests {
 
     @Test
     void contextLoads() {

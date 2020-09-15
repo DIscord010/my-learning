@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>club.csiqu</groupId>
-    <artifactId>learn-seckill</artifactId>
+    <artifactId>learn-web</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>learn-seckill</name>
     <description>My Seckill Service</description>

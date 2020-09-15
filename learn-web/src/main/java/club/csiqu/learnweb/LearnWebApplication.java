@@ -1,18 +1,16 @@
-package club.csiqu.learnseckill;
+package club.csiqu.learnweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 高并发服务学习。
- *
  * @author Siqu Chen
  */
 @SpringBootApplication
-public class LearnSeckillApplication {
+public class LearnWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LearnSeckillApplication.class, args);
+        SpringApplication.run(LearnWebApplication.class, args);
     }
 
 }
