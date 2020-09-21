@@ -9,7 +9,7 @@
           class="club.csiqu.learn.framework.spring.ioc.example.service.impl.SpringHelloWorldImpl"/>
 
     <bean id="helloWorldService"
-          class="club.csiqu.learn.framework.spring.ioc.example.service.HelloWorldService">
+          class="club.csiqu.learn.framework.spring.ioc.example.service.HelloWorldService" lazy-init="true">
         <property name="helloWorld" ref="springHelloWorld"/>
     </bean>
 </beans>
