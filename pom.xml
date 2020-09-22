@@ -34,7 +34,7 @@
         <module>learn-concurrent</module>
         <module>learn-config</module>
         <module>learn-algorithm</module>
-        <module>learn-seckill</module>
+        <module>learn-web</module>
     </modules>
 
     <dependencyManagement>
