@@ -15,12 +15,12 @@ import java.util.concurrent.ConcurrentHashMap;
 public abstract class AbstractBeanFactory implements BeanFactory {
 
     /** IoC容器 */
-    private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
+    private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
 
     private final List<String> beanDefinitionNames = new ArrayList<>();
 
     /** bean处理程序，借此可以完成 AOP等功能 */
-    private List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
+    private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
 
     @Override
     public Object getBean(String beanName) throws Exception {
@@ -98,13 +98,11 @@ public abstract class AbstractBeanFactory implements BeanFactory {
      * @see Class#isAssignableFrom(Class)
      */
     @SuppressWarnings("unchecked")
-    public List getBeansForType(Class type) throws Exception {
-        List beans = new ArrayList();
-
+    public <T> List<T> getBeansForType(Class<T> type) throws Exception {
+        List<T> beans = new ArrayList<>();
         for (String beanDefinitionName : beanDefinitionNames) {
-
             if (type.isAssignableFrom(beanDefinitionMap.get(beanDefinitionName).getBeanClass())) {
-                beans.add(getBean(beanDefinitionName));
+                beans.add((T) getBean(beanDefinitionName));
             }
         }
         return beans;
