@@ -15,7 +15,7 @@
     <aop:config>
         <aop:aspect ref="parameterAspect" order="1">
             <aop:around method="execute"
-                        pointcut="@annotation(club.csiqu.learn.framework.spring.aop.parameter.annotation.ServiceParameter)"/>
+                        pointcut="@annotation(club.csiqu.learn.framework.spring.aop.parameter.annotation.ParameterHandler)"/>
         </aop:aspect>
     </aop:config>
 

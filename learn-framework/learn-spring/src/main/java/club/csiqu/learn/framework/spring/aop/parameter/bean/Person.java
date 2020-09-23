@@ -1,15 +1,15 @@
 package club.csiqu.learn.framework.spring.aop.parameter.bean;
 
-import club.csiqu.learn.framework.spring.aop.parameter.annotation.QueryParameterTransform;
+import club.csiqu.learn.framework.spring.aop.parameter.annotation.Transform;
 
 /**
  * @author chensiqu [540498860@qq.com]
  * @since 2019/8/26 17:16
  */
-@QueryParameterTransform
+@Transform
 public class Person {
 
-    @QueryParameterTransform
+    @Transform
     private String name;
 
     public Person() {}

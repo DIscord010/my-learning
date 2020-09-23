@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/8/26 17:10
  */
-public class ParameterTransformMain {
+public class ParameterTransformApplication {
 
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package club.csiqu.learn.framework.spring.aop.parameter.service.impl;
 
-import club.csiqu.learn.framework.spring.aop.parameter.annotation.ServiceParameter;
+import club.csiqu.learn.framework.spring.aop.parameter.annotation.ParameterHandler;
 import club.csiqu.learn.framework.spring.aop.parameter.bean.Person;
 import club.csiqu.learn.framework.spring.aop.parameter.service.HelloService;
 
@@ -11,7 +11,7 @@ import club.csiqu.learn.framework.spring.aop.parameter.service.HelloService;
 public class HelloServiceImpl implements HelloService {
 
     @Override
-    @ServiceParameter
+    @ParameterHandler
     public void sayHello(Person person) {
 
         System.out.println(person.getName() + " say hello!");
