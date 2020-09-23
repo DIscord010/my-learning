@@ -15,7 +15,7 @@ public class ParameterTransformApplication {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "/spring/spring-my-parameter.xml");
-        HelloService helloService = (HelloService)context.getBean("sayHelloService");
+        HelloService helloService = (HelloService) context.getBean("sayHelloService");
         Person person = new Person("chen");
         helloService.sayHello(person);
     }
