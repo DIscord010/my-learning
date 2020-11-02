@@ -8,7 +8,6 @@ import club.csiqu.learn.framework.mybatis.demo.entity.User;
  */
 public interface UserMapper {
 
-
     User getByUserName(String userName);
 
 }

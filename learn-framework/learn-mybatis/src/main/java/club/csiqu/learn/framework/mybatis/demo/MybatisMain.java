@@ -6,6 +6,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -21,6 +23,8 @@ import java.io.InputStream;
  */
 public class MybatisMain {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger(MybatisMain.class);
+
     public static void main(String[] args) throws IOException {
         // 配置文件文件路径
         String resource = "mybatis/mybatis-config.xml";
@@ -34,15 +38,15 @@ public class MybatisMain {
             // 原始的使用方式，直接通过映射的 SQL语句来进行查询
             // 第一个参数为 [命名空间].[语句 id]，第二个参数为该 SQL语句需要的参数
             User user = session.selectOne(
-                    "club.csiqu.framework.mybatis.demo.mapper.UserMapper.getByUserName", "admin");
-            System.out.println(user.getPassword());
+                    "club.csiqu.learn.framework.mybatis.demo.mapper.UserMapper.getByUserName", "admin");
+            LOGGER.info(user.getPassword());
         }
         // 简洁的方式，使用正确描述每个语句的参数和返回值的接口
         // 可以执行更清晰和类型安全的代码，而且还不用担心易错的字符串字面值以及强制类型转换
         try (SqlSession session = sqlSessionFactory.openSession()) {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = mapper.getByUserName("admin");
-            System.out.println(user.getPassword());
+            LOGGER.info(user.getPassword());
         }
     }
 }
