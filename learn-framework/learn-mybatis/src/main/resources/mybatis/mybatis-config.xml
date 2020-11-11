@@ -4,7 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <plugins>
-        <plugin interceptor="club.csiqu.learn.framework.mybatis.demo.plugin.PaginationInterceptor">
+        <plugin interceptor="club.csiqu.learn.framework.mybatis.demo.plugin.MyInterceptor">
+        </plugin>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
         </plugin>
     </plugins>
     <environments default="development">

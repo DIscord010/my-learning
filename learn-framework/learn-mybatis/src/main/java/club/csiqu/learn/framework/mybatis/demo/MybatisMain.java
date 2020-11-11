@@ -2,6 +2,7 @@ package club.csiqu.learn.framework.mybatis.demo;
 
 import club.csiqu.learn.framework.mybatis.demo.entity.User;
 import club.csiqu.learn.framework.mybatis.demo.mapper.UserMapper;
+import com.github.pagehelper.page.PageMethod;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * 单独使用 Mybatis框架进行数据库的查询。
@@ -47,6 +49,9 @@ public class MybatisMain {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = mapper.getByUserName("admin");
             LOGGER.info(user.getPassword());
+            PageMethod.startPage(1, 2);
+            List<User> users = mapper.listByPassword("123456");
+            LOGGER.info("Size must be 2: {}", users.size());
         }
     }
 }

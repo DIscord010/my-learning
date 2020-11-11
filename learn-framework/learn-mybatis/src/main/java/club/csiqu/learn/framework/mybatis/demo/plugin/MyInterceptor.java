@@ -19,13 +19,13 @@ import java.util.Properties;
         type = StatementHandler.class,
         method = "prepare",
         args = {Connection.class, Integer.class})})
-public class PaginationInterceptor implements Interceptor {
+public class MyInterceptor implements Interceptor {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(PaginationInterceptor.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MyInterceptor.class);
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        LOGGER.info("PaginationInterceptor execute.");
+        LOGGER.info("MyInterceptor execute.");
         return invocation.proceed();
     }
 

@@ -8,4 +8,10 @@
         from t_user
         where username = #{userName}
     </select>
+
+    <select id="listByPassword" resultType="club.csiqu.learn.framework.mybatis.demo.entity.User">
+        select *
+        from t_user
+        where password = #{password}
+    </select>
 </mapper>

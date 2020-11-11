@@ -1,6 +1,8 @@
 package club.csiqu.learn.framework.mybatis.spring;
 
 import club.csiqu.learn.framework.mybatis.demo.mapper.UserMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,10 +14,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MybatisSpringMain {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MybatisSpringMain.class);
+
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 "/spring/mybatis/spring-mybatis.xml");
-        UserMapper userMapper = (UserMapper)context.getBean("userMapper");
-        System.out.println(userMapper.getByUserName("admin").getPassword());
+        UserMapper userMapper = (UserMapper) context.getBean("userMapper");
+        LOGGER.info(userMapper.getByUserName("admin").getPassword());
     }
 }
