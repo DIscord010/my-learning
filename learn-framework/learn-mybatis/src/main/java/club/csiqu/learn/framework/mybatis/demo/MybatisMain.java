@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * 单独使用 Mybatis框架进行数据库的查询。
- * sqlsession中持有 executor，executor中持有 transaction，transaction中持有 dataSource以及 connection。
+ * sqlSession中持有 executor，executor中持有 transaction，transaction中持有 dataSource以及 connection。
  * Mybatis在第一次真正执行查询语句时，才会从使用 {@link DataSource#getConnection()}中获取数据库连接对象。
  *
  * @author chensiqu [540498860@qq.com]
@@ -51,6 +51,7 @@ public class MybatisMain {
             LOGGER.info(user.getPassword());
             PageMethod.startPage(1, 2);
             List<User> users = mapper.listByPassword("123456");
+            PageMethod.clearPage();
             LOGGER.info("Size must be 2: {}", users.size());
         }
     }
