@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>club.csiqu.learn</groupId>
-            <artifactId>learn-config</artifactId>
+            <artifactId>learn-dependency</artifactId>
         </dependency>
 
         <dependency>

@@ -11,8 +11,8 @@
     <groupId>club.csiqu</groupId>
     <artifactId>learn-web</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>learn-seckill</name>
-    <description>My Seckill Service</description>
+    <name>learn-web</name>
+    <description>My Web</description>
 
     <properties>
         <java.version>1.8</java.version>

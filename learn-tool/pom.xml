@@ -17,12 +17,13 @@
         <module>tool-btrace</module>
         <module>tool-kafka-client</module>
         <module>tool-curator</module>
+        <module>tool-mqtt</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>club.csiqu.learn</groupId>
-            <artifactId>learn-config</artifactId>
+            <artifactId>learn-dependency</artifactId>
         </dependency>
     </dependencies>
 

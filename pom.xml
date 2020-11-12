@@ -32,7 +32,7 @@
         <module>learn-structure</module>
         <module>learn-tool</module>
         <module>learn-concurrent</module>
-        <module>learn-config</module>
+        <module>learn-dependency</module>
         <module>learn-algorithm</module>
         <module>learn-web</module>
     </modules>
@@ -41,7 +41,7 @@
         <dependencies>
             <dependency>
                 <groupId>club.csiqu.learn</groupId>
-                <artifactId>learn-config</artifactId>
+                <artifactId>learn-dependency</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -237,6 +237,12 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>5.2.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.paho</groupId>
+                <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+                <version>1.2.2</version>
             </dependency>
 
         </dependencies>
