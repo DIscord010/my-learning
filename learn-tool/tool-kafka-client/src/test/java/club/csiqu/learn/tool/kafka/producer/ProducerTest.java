@@ -1,5 +1,6 @@
 package club.csiqu.learn.tool.kafka.producer;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -7,6 +8,11 @@ import org.junit.jupiter.api.Test;
  * @since 1.0
  */
 class ProducerTest {
+
+    @AfterAll
+    static void closeProducer() {
+        Producer.getInstance().close();
+    }
 
     @Test
     void testSendMessage() {

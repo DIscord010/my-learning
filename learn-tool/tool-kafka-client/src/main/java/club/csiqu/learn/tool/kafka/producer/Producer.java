@@ -33,6 +33,8 @@ public class Producer {
         // 值的序列化方式
         kafkaProps.put("value.serializer",
                 "org.apache.kafka.common.serialization.StringSerializer");
+        kafkaProps.put("max.block.ms",
+                "3000");
         kafkaProducer = new KafkaProducer<>(kafkaProps);
     }
 
@@ -67,6 +69,10 @@ public class Producer {
     public void sendMessageAsync(String topic, String key, String value) {
         ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
         kafkaProducer.send(record, new DemoProducerCallback());
+    }
+
+    public void close() {
+        this.kafkaProducer.close();
     }
 
     /**
