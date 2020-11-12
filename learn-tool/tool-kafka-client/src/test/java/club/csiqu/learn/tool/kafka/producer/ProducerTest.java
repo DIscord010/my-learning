@@ -32,7 +32,7 @@ class ProducerTest {
     }
 
     @Test
-    void testSendMessageAsyc() {
+    void testSendMessageAsync() {
         Assertions.assertDoesNotThrow(() -> {
             Producer producer = Producer.getInstance();
             producer.sendMessageAsync("TEST", null, "test3");
