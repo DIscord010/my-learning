@@ -1,6 +1,7 @@
 package club.csiqu.learn.tool.kafka.producer;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -16,19 +17,25 @@ class ProducerTest {
 
     @Test
     void testSendMessage() {
-        Producer producer = Producer.getInstance();
-        producer.sendMessage("TEST", null, "test1");
+        Assertions.assertDoesNotThrow(() -> {
+            Producer producer = Producer.getInstance();
+            producer.sendMessage("TEST", null, "test1");
+        });
     }
 
     @Test
     void testSendMessageSync() {
-        Producer producer = Producer.getInstance();
-        producer.sendMessageSync("TEST", null, "test2");
+        Assertions.assertDoesNotThrow(() -> {
+            Producer producer = Producer.getInstance();
+            producer.sendMessageSync("TEST", null, "test2");
+        });
     }
 
     @Test
     void testSendMessageAsyc() {
-        Producer producer = Producer.getInstance();
-        producer.sendMessageAsync("TEST", null, "test3");
+        Assertions.assertDoesNotThrow(() -> {
+            Producer producer = Producer.getInstance();
+            producer.sendMessageAsync("TEST", null, "test3");
+        });
     }
 }
