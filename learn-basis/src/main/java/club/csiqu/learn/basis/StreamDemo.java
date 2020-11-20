@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.feature;
+package club.csiqu.learn.basis;
 
 import java.util.List;
 import java.util.Map;

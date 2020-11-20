@@ -1,5 +1,6 @@
 package club.csiqu.learn.basis.feature;
 
+import club.csiqu.learn.basis.StreamDemo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

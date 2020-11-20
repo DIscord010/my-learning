@@ -1,7 +1,7 @@
 package club.csiqu.learn.basis.net.echo;
 
 import club.csiqu.learn.basis.net.AbstractStopServer;
-import club.csiqu.learn.basis.executor.Executors;
+import club.csiqu.learn.basis.Executors;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

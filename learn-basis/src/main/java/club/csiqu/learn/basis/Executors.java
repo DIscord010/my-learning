@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.executor;
+package club.csiqu.learn.basis;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
