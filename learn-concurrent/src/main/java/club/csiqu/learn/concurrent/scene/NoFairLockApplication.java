@@ -47,18 +47,33 @@ public class NoFairLockApplication {
     private static void count(Lock lock) throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(THREAD_SIZE);
         for (int i = 0; i < THREAD_SIZE; i++) {
-            new Thread(() -> {
-                for (int j = 0; j < LOOP_NUMBER; j++) {
-                    lock.lock();
-                    try {
-                        count++;
-                    } finally {
-                        lock.unlock();
-                    }
-                }
-                latch.countDown();
-            }).start();
+            new CountThread(latch, lock).start();
         }
         latch.await();
+    }
+
+    private static class CountThread extends Thread {
+
+        private final CountDownLatch latch;
+
+        private final Lock lock;
+
+        public CountThread(CountDownLatch countDownLatch, Lock lock) {
+            this.latch = countDownLatch;
+            this.lock = lock;
+        }
+
+        @Override
+        public void run() {
+            for (int j = 0; j < LOOP_NUMBER; j++) {
+                lock.lock();
+                try {
+                    count++;
+                } finally {
+                    lock.unlock();
+                }
+            }
+            latch.countDown();
+        }
     }
 }
