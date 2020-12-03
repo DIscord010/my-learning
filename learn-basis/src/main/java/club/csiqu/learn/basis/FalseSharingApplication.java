@@ -4,6 +4,8 @@ import com.google.common.base.Stopwatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.concurrent.CountDownLatch;
+
 /**
  * @author Siqu Chen 2020/11/26
  * @since 1.0.0
@@ -26,6 +28,8 @@ public class FalseSharingApplication {
         // init threads
         Thread[] noPaddingThreads = new Thread[NUM_THREADS];
         Thread[] paddingThread = new Thread[NUM_THREADS];
+        CountDownLatch noPaddingLatch = new CountDownLatch(NUM_THREADS);
+        CountDownLatch paddingLatch = new CountDownLatch(NUM_THREADS);
         for (int i = 0; i < noPaddingThreads.length; i++) {
             final int index = i;
             noPaddingThreads[i] = new Thread(() -> {
@@ -33,6 +37,7 @@ public class FalseSharingApplication {
                 while (0 != --count) {
                     valueNoPaddings[index].value = 0L;
                 }
+                noPaddingLatch.countDown();
             });
         }
         for (int i = 0; i < paddingThread.length; i++) {
@@ -42,25 +47,21 @@ public class FalseSharingApplication {
                 do {
                     valuePaddings[index].value = 0L;
                 } while (0 != --count);
+                paddingLatch.countDown();
             });
         }
         Stopwatch stopwatch = Stopwatch.createStarted();
         for (Thread t : noPaddingThreads) {
             t.start();
         }
-        for (Thread t : noPaddingThreads) {
-            t.join();
-        }
+        noPaddingLatch.await();
         LOGGER.info("No Paddings cost times: {}", stopwatch.stop());
         stopwatch.reset();
         stopwatch.start();
         for (Thread t : paddingThread) {
             t.start();
         }
-
-        for (Thread t : paddingThread) {
-            t.join();
-        }
+        paddingLatch.await();
         LOGGER.info("Paddings cost times: {}", stopwatch.stop());
 
     }
