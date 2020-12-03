@@ -35,7 +35,7 @@ public class NoFairLockApplication {
     public static void main(String[] args) throws InterruptedException {
         Stopwatch stopwatch = Stopwatch.createStarted();
         count(UNFAIR_LOCK);
-        LOGGER.info("NnFair Lock Count cost times: {}", stopwatch.stop());
+        LOGGER.info("UnFair Lock Count cost times: {}", stopwatch.stop());
 
         stopwatch.reset();
         stopwatch.start();
