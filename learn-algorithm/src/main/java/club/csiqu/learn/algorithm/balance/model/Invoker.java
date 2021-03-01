@@ -25,8 +25,8 @@ public class Invoker {
         return weight;
     }
 
-    public void setWeight(Integer weigth) {
-        this.weight = weigth;
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
     public Integer getCount() {
