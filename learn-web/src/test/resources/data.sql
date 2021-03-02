@@ -1,0 +1,1 @@
+INSERT INTO seckill (seckill_id, name, number) VALUES ('1000', '1000元秒杀iphone8', '100');
