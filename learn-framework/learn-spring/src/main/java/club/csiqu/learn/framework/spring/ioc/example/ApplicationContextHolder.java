@@ -19,7 +19,7 @@ public class ApplicationContextHolder {
 
     static {
         // 加载 XML文件的方式进行初始化上下文
-        XML_CONTEXT = new ClassPathXmlApplicationContext("/spring/ioc/simple/spring-ioc.xml");
+        XML_CONTEXT = new ClassPathXmlApplicationContext("/spring/ioc/example/spring-ioc.xml");
         // 通过扫描路径进行初始化上下文
         ANNOTATION_CONTEXT =
                 new AnnotationConfigApplicationContext("club.csiqu.learn.framework.spring.ioc.example.service");

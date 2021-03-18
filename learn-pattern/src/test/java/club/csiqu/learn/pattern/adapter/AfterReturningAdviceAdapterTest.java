@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Method;
 
 /**
+ * 将{@link AfterReturningAdvice}接口适配为{@link MethodInterceptor}接口
+ *
  * @author Siqu Chen 2020/9/23
  * @since 1.0
  */
