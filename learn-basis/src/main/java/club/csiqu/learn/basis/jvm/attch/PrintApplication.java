@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.instrument;
+package club.csiqu.learn.basis.jvm.attch;
 
 import java.lang.management.ManagementFactory;
 
@@ -6,7 +6,7 @@ import java.lang.management.ManagementFactory;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/16 15:27
  */
-class Base {
+class PrintApplication {
 
     public static void main(String[] args) {
         String name = ManagementFactory.getRuntimeMXBean().getName();

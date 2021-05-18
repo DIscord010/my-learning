@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.jvm.instrument;
+package club.csiqu.learn.basis.jvm.attch;
 
 import com.sun.tools.attach.AgentInitializationException;
 import com.sun.tools.attach.AgentLoadException;
@@ -11,7 +11,7 @@ import java.io.IOException;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/16 16:01
  */
-public class Attacher {
+public class AttachApplication {
 
     public static void main(String[] args) throws AttachNotSupportedException, IOException, AgentLoadException, AgentInitializationException {
         // 传入目标 JVM pid
