@@ -1,6 +1,6 @@
 package club.csiqu.learn.basis.jvm.bytecode.javassist;
 
-import club.csiqu.learn.basis.jvm.bytecode.Base;
+import club.csiqu.learn.basis.jvm.bytecode.PrintProcess;
 import javassist.CannotCompileException;
 import javassist.ClassPool;
 import javassist.CtClass;
@@ -13,7 +13,7 @@ import javassist.NotFoundException;
  * @author chensiqu [540498860@qq.com]
  * @since 2019/9/12 16:36
  */
-public class JavassistGenerator {
+public class JavassistApplication {
 
     public static void main(String[] args) throws NotFoundException, CannotCompileException, IllegalAccessException, InstantiationException {
 
@@ -22,7 +22,7 @@ public class JavassistGenerator {
         //Base b = new Base();
 
         ClassPool cp = ClassPool.getDefault();
-        CtClass cc = cp.get("club.csiqu.learn.basis.jvm.bytecode.Base");
+        CtClass cc = cp.get(PrintProcess.CLASS_REFERENCE);
         CtMethod m = cc.getDeclaredMethod("process");
 
         m.insertBefore("{ System.out.println(\"start\"); }");
@@ -30,7 +30,7 @@ public class JavassistGenerator {
 
         Class<?> c = cc.toClass();
 
-        Base base = (Base)c.newInstance();
+        PrintProcess base = (PrintProcess)c.newInstance();
         base.process();
     }
 }
