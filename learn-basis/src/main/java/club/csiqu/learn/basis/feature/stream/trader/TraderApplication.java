@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -71,12 +72,12 @@ public class TraderApplication {
                 .filter(transaction -> CAMBRIDGE.equals(transaction.getTrader().getCity()))
                 .forEach(transaction -> LOGGER.info("Transaction value：{}", transaction.getValue()));
         // 7、所有交易中，最高的交易额是多少
-        int maxValue = transactions.stream()
-                .max(Comparator.comparing(Transaction::getValue)).get().getValue();
-        LOGGER.info("Max value:{}", maxValue);
+        Optional<Transaction> max = transactions.stream()
+                .max(Comparator.comparing(Transaction::getValue));
+        max.ifPresent(transaction -> LOGGER.info("Max :{}", transaction.getValue()));
         // 8、找到交易额最小的交易
-        int minValue = transactions.stream()
-                .min(Comparator.comparing(Transaction::getValue)).get().getValue();
-        LOGGER.info("Min value:{}", minValue);
+        Optional<Transaction> min = transactions.stream()
+                .min(Comparator.comparing(Transaction::getValue));
+        min.ifPresent(transaction -> LOGGER.info("Min :{}", transaction.getValue()));
     }
 }
