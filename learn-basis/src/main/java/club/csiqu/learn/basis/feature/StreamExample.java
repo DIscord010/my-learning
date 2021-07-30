@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis;
+package club.csiqu.learn.basis.feature;
 
 import java.util.List;
 import java.util.Map;
@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
  * @author chensiqu
  * @since 2019/3/15 11:05
  */
-public class StreamDemo {
+public class StreamExample {
 
-    private StreamDemo() {}
+    private StreamExample() {}
 
     public static long count(List<Integer> list) {
         // 使用 stream()进行统计大于 2的数量
@@ -32,5 +32,15 @@ public class StreamDemo {
     public static void accept(StringBuilder stringBuilder) {
         Consumer<StringBuilder> consumer = s -> s.append("hello");
         consumer.accept(stringBuilder);
+    }
+
+    /**
+     * 给定两个数字列表，如何返回所有的数对呢？例如，给定列表[1, 2, 3]和列表[3, 4]，
+     * 应该返回[(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)]。
+     */
+    public static List<int[]> numberArray(List<Integer> numbers1, List<Integer> numbers2) {
+        return numbers1.stream()
+                .flatMap(a -> numbers2.stream().map(b -> new int[]{a, b}))
+                .collect(Collectors.toList());
     }
 }
