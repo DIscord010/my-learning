@@ -14,7 +14,7 @@ class BitSet {
     private static final Logger LOGGER = LoggerFactory.getLogger(BitSet.class);
 
     /** 位图数组 */
-    private int[] words;
+    private final int[] words;
 
     /**
      * 构造函数，传入最大数值。

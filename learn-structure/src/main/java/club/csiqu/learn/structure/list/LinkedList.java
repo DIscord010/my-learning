@@ -6,37 +6,41 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * 简单实现动态数组
+ * 单向链表
+ * 头插法，新插入的节点为头节点
  *
- * @param <E> 数组内元素类型
  * @author chensiqu
- * @since 2019/3/29 18:02
  */
-public class ArrayList<E> implements List<E> {
+class LinkedList<E> implements List<E> {
 
-    /** 元素数组 */
-    private Object[] elementData;
-
-    /** 数组元素数量 */
+    /** 链表节点的个数 */
     private int size;
 
-    /** 默认数组空间大小 */
-    private static final int DEFAULT_CAPACITY = 10;
+    /** 头节点 */
+    private Node<E> head;
 
     /**
-     * 无参构造函数，默认数组空间大小为 10。
+     * 构造方法，初始化链表
      */
-    public ArrayList() {
-        this.elementData = new Object[DEFAULT_CAPACITY];
+    public LinkedList() {
+        this.size = 0;
+        this.head = null;
     }
 
     /**
-     * 根据给定的空间大小申请数组空间
-     *
-     * @param capacity 数组空间大小
+     * 链表的内部节点类
      */
-    public ArrayList(int capacity) {
-        this.elementData = new Object[capacity];
+    static class Node<E> {
+
+        /** 节点的数据 */
+        E value;
+
+        /** 存储下一个节点的引用 */
+        Node<E> next;
+
+        Node(E value) {
+            this.value = value;
+        }
     }
 
     @Override
@@ -46,12 +50,19 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean isEmpty() {
-        return this.size == 0;
+        return size == 0;
     }
 
     @Override
     public boolean contains(Object o) {
-        throw new UnsupportedOperationException();
+        Node<E> node = this.head;
+        while (node != null) {
+            if (node.value.equals(o)) {
+                return true;
+            }
+            node = node.next;
+        }
+        return false;
     }
 
     @Override
@@ -71,30 +82,40 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean add(E e) {
-        if (size >= elementData.length) {
-            grow();
+        Node<E> newNode = new Node<>(e);
+        if (this.size != 0) {
+            newNode.next = head;
         }
-        elementData[size++] = e;
+        this.head = newNode;
+        this.size++;
         return true;
-    }
-
-    /**
-     * 数组扩容
-     */
-    private void grow() {
-        // 建立一个空间大小为之前空间两倍的新数组
-        int oldCapacity = elementData.length;
-        int newCapacity = oldCapacity << 1;
-        Object[] objects = new Object[newCapacity];
-
-        // 将旧数组元素复制进新数组
-        System.arraycopy(elementData, 0, objects, 0, elementData.length);
-        elementData = objects;
     }
 
     @Override
     public boolean remove(Object o) {
-        throw new UnsupportedOperationException();
+        if (size == 0) {
+            return false;
+        }
+        // 当前节点的前一个节点
+        Node<E> previous = null;
+        // 当前节点
+        Node<E> current = head;
+        while (current != null) {
+            if (current.value.equals(o)) {
+                // 如果删除的是第一个节点
+                if (previous == null) {
+                    head = current.next;
+                } else {
+                    previous.next = current.next;
+                }
+                this.size--;
+                return true;
+            } else {
+                previous = current;
+                current = current.next;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -128,12 +149,8 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public E get(int index) {
-        if (index >= size) {
-            throw new IndexOutOfBoundsException("index: " + index + ",size: " + size);
-        }
-        return (E) elementData[index];
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -147,15 +164,8 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public E remove(int index) {
-        if (index >= size) {
-            throw new IndexOutOfBoundsException("index: " + index + ",size: " + size);
-        }
-        Object result = elementData[index];
-        System.arraycopy(elementData, index + 1, elementData, index, size - index);
-        size--;
-        return (E) result;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -182,4 +192,5 @@ public class ArrayList<E> implements List<E> {
     public List<E> subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException();
     }
+
 }
