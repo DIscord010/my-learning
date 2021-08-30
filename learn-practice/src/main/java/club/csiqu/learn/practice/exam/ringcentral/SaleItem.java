@@ -12,7 +12,7 @@ public class SaleItem {
 
     private Date date;
 
-    private String transationId;
+    private String transactionId;
 
     private double saleNumbers;
 
@@ -33,12 +33,12 @@ public class SaleItem {
         this.date = date;
     }
 
-    public String getTransationId() {
-        return transationId;
+    public String getTransactionId() {
+        return transactionId;
     }
 
-    public void setTransationId(String transationId) {
-        this.transationId = transationId;
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
     public double getSaleNumbers() {

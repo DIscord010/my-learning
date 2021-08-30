@@ -42,7 +42,8 @@ public class Utils {
                     String extType1 = a.getExtType();
                     String extType2 = b.getExtType();
                     // big -> small
-                    return extTypes.get(extType2) - extTypes.get(extType1);
+                    return extTypes.getOrDefault(extType2, 0) -
+                            extTypes.getOrDefault(extType1, 0);
                 }
         ).collect(Collectors.toList());
     }
@@ -78,7 +79,7 @@ public class Utils {
                 .map(e -> {
                     QuarterSalesItem quarterSalesItem = new QuarterSalesItem();
                     quarterSalesItem.setQuarter(e.getKey());
-                    quarterSalesItem.setValue(e.getValue().get().getSaleNumbers());
+                    quarterSalesItem.setValue(e.getValue().isPresent() ? e.getValue().get().getSaleNumbers() : 0);
                     return quarterSalesItem;
                 }).collect(Collectors.toList());
     }
