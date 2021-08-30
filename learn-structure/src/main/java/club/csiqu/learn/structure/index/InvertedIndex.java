@@ -1,6 +1,10 @@
 package club.csiqu.learn.structure.index;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,10 +22,10 @@ import java.util.Map;
 public class InvertedIndex {
 
     /** 倒排索引存放 */
-    private Map<String, List<String>> indexMap = new HashMap<>();
+    private final Map<String, List<String>> indexMap = new HashMap<>();
 
     /** 单词数统计 */
-    private Map<String, Integer> count = new HashMap<>();
+    private final Map<String, Integer> count = new HashMap<>();
 
     /**
      * 建立倒排索引

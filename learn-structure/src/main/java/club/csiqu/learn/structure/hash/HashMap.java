@@ -26,7 +26,7 @@ class HashMap<K, V> {
     private int capacity;
 
     /** 扩容因子 */
-    private float loadFactor;
+    private final float loadFactor;
 
     /** hashTable */
     private Entry<K, V>[] table;

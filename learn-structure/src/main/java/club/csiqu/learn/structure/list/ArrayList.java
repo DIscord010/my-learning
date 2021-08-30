@@ -7,7 +7,7 @@ package club.csiqu.learn.structure.list;
  * @author chensiqu
  * @since 2019/3/29 18:02
  */
-class ArrayList<E> {
+public class ArrayList<E> {
 
     /** 元素数组 */
     private Object[] elementData;
@@ -21,7 +21,7 @@ class ArrayList<E> {
     /**
      * 无参构造函数，默认数组空间大小为 10。
      */
-    private ArrayList() {
+    public ArrayList() {
         this.elementData = new Object[DEFAULT_CAPACITY];
     }
 
@@ -30,7 +30,7 @@ class ArrayList<E> {
      *
      * @param capacity 数组空间大小
      */
-    private ArrayList(int capacity) {
+    public ArrayList(int capacity) {
         this.elementData = new Object[capacity];
     }
 
@@ -39,7 +39,7 @@ class ArrayList<E> {
      *
      * @param e 元素
      */
-    private void add(E e) {
+    public void add(E e) {
         if (size >= elementData.length) {
             grow();
         }
@@ -65,7 +65,7 @@ class ArrayList<E> {
      *
      * @param index 下标
      */
-    private void remove(int index) {
+    public void remove(int index) {
         if (index >= size) {
             throw new IndexOutOfBoundsException("index: " + index + ",size: " + size);
         }
@@ -77,21 +77,14 @@ class ArrayList<E> {
      * 获取某一下标的元素
      */
     @SuppressWarnings("unchecked")
-    private E get(int index) {
+    public E get(int index) {
         if (index >= size) {
             throw new IndexOutOfBoundsException("index: " + index + ",size: " + size);
         }
         return (E) elementData[index];
     }
 
-    public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>(1);
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.remove(1);
-        System.out.println(list.size);
-        System.out.println(list.get(1));
-        System.out.println(list.get(0));
+    public int size() {
+        return this.size;
     }
 }
