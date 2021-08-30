@@ -15,7 +15,7 @@ public class ValidatorApplication {
         // before
         Validator numericValidator = new Validator(new IsNumeric());
         LOGGER.info("aah validate result:{}", numericValidator.validate("aah"));
-        Validator lowerCaseValidator = new Validator(new IsAllLowerCase());
+        Validator lowerCaseValidator = new Validator(new IsLowerCase());
         LOGGER.info("good validate result:{}", lowerCaseValidator.validate("good"));
 
         // after
