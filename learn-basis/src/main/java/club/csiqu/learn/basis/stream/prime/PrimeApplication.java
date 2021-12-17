@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.feature.stream.prime;
+package club.csiqu.learn.basis.stream.prime;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

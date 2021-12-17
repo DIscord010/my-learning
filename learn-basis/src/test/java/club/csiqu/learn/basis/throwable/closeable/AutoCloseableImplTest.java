@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.throwable.exception.closeable;
+package club.csiqu.learn.basis.throwable.closeable;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ class AutoCloseableImplTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(AutoCloseableImplTest.class);
 
     @Test
-    public void testExceptionMask() {
+    void testExceptionMask() {
         // finally块抛出的异常会屏蔽 try块产生的异常
         AutoCloseableImpl autoCloseable = new AutoCloseableImpl();
         try {
@@ -33,7 +33,7 @@ class AutoCloseableImplTest {
     }
 
     @Test
-    public void testExceptionTryResource() {
+    void testExceptionTryResource() {
         // finally块抛出的异常会屏蔽 try块产生的异常
         try {
             try (AutoCloseableImpl autoCloseable = new AutoCloseableImpl()) {

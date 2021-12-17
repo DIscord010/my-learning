@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.feature.stream.prime;
+package club.csiqu.learn.basis.stream.prime;
 
 import java.util.ArrayList;
 import java.util.Collections;

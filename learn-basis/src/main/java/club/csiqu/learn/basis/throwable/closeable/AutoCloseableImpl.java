@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.throwable.exception.closeable;
+package club.csiqu.learn.basis.throwable.closeable;
 
 /**
  * @author Siqu Chen 2020/6/3

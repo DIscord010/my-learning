@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.feature.stream.trader;
+package club.csiqu.learn.basis.stream.trader;
 
 /**
  * @author Siqu Chen 2021/7/30

@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.throwable.exception;
+package club.csiqu.learn.basis.throwable;
 
 
 import org.junit.jupiter.api.Assertions;

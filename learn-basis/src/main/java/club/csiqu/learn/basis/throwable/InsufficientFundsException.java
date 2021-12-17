@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.throwable.exception;
+package club.csiqu.learn.basis.throwable;
 
 /**
  * 自定义的余额异常类

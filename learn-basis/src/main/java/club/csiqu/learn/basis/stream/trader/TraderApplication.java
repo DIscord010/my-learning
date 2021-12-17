@@ -1,4 +1,4 @@
-package club.csiqu.learn.basis.feature.stream.trader;
+package club.csiqu.learn.basis.stream.trader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
