@@ -20,7 +20,6 @@ import java.net.UnknownHostException;
  * <p>
  * 默认存在重试机制：
  * 但是 InterruptedIOException, ConnectException, UnknownHostException, SSLException四种异常不进行重试。
- * 则连接超时（ConnectTimeout，也可以说是写超时）和响应超时(SocketTimeout，读取超时)以及因为网络抖动而导致的连接失败（ConnectException）都是不进行重试的。
  * 默认重试三次，且携带实体（A request with an entity）的请求不进行重试，即 post、put请求不进行重试。
  * 可以自定实现 {@link  HttpRequestRetryHandler}接口来自定义重试规则。
  * 且如果使用的是同一个 httpclient的实例，那么相同域名下的 URL就会共用同一个连接。
