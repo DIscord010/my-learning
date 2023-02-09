@@ -18,6 +18,7 @@
         <module>tool-kafka-client</module>
         <module>tool-curator</module>
         <module>tool-mqtt</module>
+        <module>tool-rules</module>
     </modules>
 
     <dependencies>
