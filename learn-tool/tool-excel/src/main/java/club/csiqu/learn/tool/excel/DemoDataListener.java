@@ -20,7 +20,7 @@ public class DemoDataListener extends AnalysisEventListener<DemoData> {
     /** 每隔 5条存储数据库，实际使用中可以 3000条，然后清理 list，方便内存回收 */
     private static final int BATCH_COUNT = 5;
 
-    private List<DemoData> list = new ArrayList<>();
+    private final List<DemoData> list = new ArrayList<>();
 
     @Override
     public void invoke(DemoData data, AnalysisContext context) {
